@@ -1,0 +1,63 @@
+<!-- Autor: Tamara Radojčić 0214/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="logincss.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="header">
+            <img src="../photos/logofinal.jpg" height="60" width="60">
+            <div class="header-right">
+                <a href="../pocetne/pocetna.html">Početna</a>
+                <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                <a href="../autorizacija/login.html">Uloguj se</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="login">
+                <p class="sign">Promena lozinke</p>
+                <form class="form1">
+                    <div class="input-box">
+                        <input class="box" type="password"  placeholder="Nova lozinka" id="lozinka1">
+                    </div>
+                    <div class="input-box">
+                        <input class="box" type="password"  placeholder="Potvrdite lozinku" id="lozinka2">
+                    </div>
+                    <button class="submit" onclick=" return promeni()">Promeni lozinku</button>
+                    
+            </div>
+        </div>
+
+        <script>
+            function isValid(str){
+                return /^(?=.*[A-Za-z])(?=.*\d).{5,}$/.test(str)
+            }
+
+            function promeni() {
+                var lozinka1 = document.getElementById('lozinka1').value;
+                var lozinka2 = document.getElementById('lozinka2').value;
+
+                if(lozinka1 == "") {
+                    alert("Niste uneli lozinku!")
+                    return
+                }
+                if(lozinka1 != lozinka2) {
+                    alert("Niste dobro ponovili lozinku!")
+                    return
+                }
+                else{
+                    if(isValid(lozinka1)){
+                        alert("Lozinka uspešno promenjena!");
+                        window.location.href = "../pocetne/pocetna_brucos.html";
+                        return false;
+                    }
+                    else{
+                        alert("Lozinka mora imati bar 1 slovo i broj i biti dugacka minimum 5 karaktera");
+                    }
+                }
+            }
+          </script>
+
+    </body>
+</html>

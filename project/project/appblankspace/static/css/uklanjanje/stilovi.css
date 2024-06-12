@@ -1,0 +1,209 @@
+form {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    align-self: center;
+}
+table {
+    width: 30%;
+    background-color: #ccc;
+    border-collapse: collapse;
+    border:1px solid black;
+    
+}
+td, th {
+    padding:30px;
+    white-space: nowrap;
+}
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+input {
+    width: calc(100% - 170px);
+}
+
+.f{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0%;
+}
+
+tr:nth-child(even) {
+    background-color: #e3f1fc;
+}
+
+tr:nth-child(odd) {
+    background-color:  #fce3fa;
+}
+
+
+
+.header{
+    background-color: lightblue;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.header a {
+    float: left;
+    color: rgb(73, 0, 107);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.header a:hover {
+    background-color: rgb(216, 245, 255);
+    color: rgb(73, 0, 107);
+}
+.header a:active {
+    background-color: #9d08b1b4;
+    color: white;
+}
+
+.menu{
+
+    margin-top: 50px;
+    height: 700px;
+    width: 700px;
+    background-color: white;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    font-size: 20px;
+    color: rgb(73, 0, 107);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+button{
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #9d08b1b4, #e63da5c9);
+    border: 0;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    display: table;
+    margin: 0 auto;
+
+}
+button:hover{
+    background: linear-gradient(to left, #9d08b1b4, #e63da5c9);
+}
+button:active{
+    background: #9d08b1b4
+}
+
+table{
+    border-radius:10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    
+    border: 3px solid purple;
+}
+
+.bodydiv{
+    overflow: auto;
+  }
+  .header{
+      background-color: lightblue;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+  
+      position:fixed;
+      padding:0;
+      margin:0;
+  
+      top:0;
+      left:0;
+  
+      width: 100%;
+  
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+  
+    .header a {
+      float: left;
+      color: rgb(73, 0, 107);
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+
+    .container-fluid{
+        
+      color: rgb(73, 0, 107);
+      text-align: left;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+
+    .header-right {
+      margin-left: auto;
+    }
+
+
+    .header-left {
+        margin-right: auto;
+    }
+  
+    .header a:hover {
+      background-color: rgb(216, 245, 255);
+      color: rgb(73, 0, 107);
+    }
+    .header a:active {
+      background-color: #9d08b1b4;
+      color: white;
+    }
+  
+    img{
+      padding-left: 15px;
+      margin-right: auto;
+    }

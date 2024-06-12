@@ -1,0 +1,29 @@
+/*Autor: Tamara Radojčić 0214/2021 */
+.submit {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #9d08b1b4, #e63da5c9);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: table;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.submit:hover{
+    background: linear-gradient(to left, #9d08b1b4, #e63da5c9);
+}
+.submit:active{
+    background: #9d08b1b4
+}
+a{
+    text-decoration: none;
+}

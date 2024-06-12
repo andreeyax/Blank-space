@@ -1,0 +1,214 @@
+<!-- Autor: Andrija Tomić 0489/2021 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+         #n{
+            display: flex;
+            justify-content: center;
+
+        }
+
+        #n ul li{
+            float: left;
+        }
+
+        #n ul li a{
+            display:block;
+            text-align: center;
+        }
+
+        .navbar{
+            align-items: center;
+            
+        }
+
+        
+  .menu{
+    margin-top: 50px;
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    font-size: 20px;
+    color: rgb(73, 0, 107);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+  }
+  .header{
+    background-color: lightblue;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  }
+
+  .header a {
+    float: left;
+    color: rgb(73, 0, 107);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+
+  .header a:hover {
+    background-color: rgb(216, 245, 255);
+    color: rgb(73, 0, 107);
+  }
+  .header a:active {
+    background-color: #9d08b1b4;
+    color: white;
+  }
+
+ 
+
+
+        button{
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #9d08b1b4, #e63da5c9);
+            border: 0;
+    
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 30px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+            display: table;
+            margin: 0 auto;
+   
+        }
+        button:hover{
+            background: linear-gradient(to left, #9d08b1b4, #e63da5c9);
+        }
+        button:active{
+            background: #9d08b1b4
+        }
+        
+        td{
+            padding:10px;
+            font-size: 25px;
+        }
+
+        label{
+            font-size: 25px;
+        }
+
+        .dugme{
+            padding-top: 50px;
+        }
+
+
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #e491ff;
+        }
+
+        .header-right {
+      margin-left: auto;
+    }
+
+
+    .header-left {
+        margin-right: auto;
+    }
+
+
+    </style>
+
+
+</head>
+<body style="background-color: rgb(240, 218, 231);">
+
+    <div class="bodydiv">
+        <div class="header">
+            <img class="rot" src="../photos/logofinal.jpg" height="60" width="60">
+            <div class="header-right">
+                <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+            </div>
+        </div>
+
+   
+    <div class="menu">
+        <div style="text-align: center;padding-top: 70px;font-size: 30px;font-weight: bold;">
+            Izaberite žanr ili žanrove
+        </div>
+        <br>
+        <br>
+
+        <div class="zanrovi" style="justify-content: center;display: flex;">
+            
+            <table>
+                <tr >
+                    <td style="margin-right: 5px;"> <input type="checkbox" name="pop" id="pop" class="z"><span class="checkmark"></span> </td>
+                    <td> <label id=pop1 for="pop">Pop</label></td>
+                </tr>
+                    
+                <tr>
+                    <td style="margin-right: 5px;"> <input type="checkbox" name="rok" id="rok" class="z"> </td>
+                    <td> <label class="to" id=rok1 for="rok">Rok</label></td>
+                </tr>
+
+                <tr>
+                    <td style="margin-right: 5px;"> <input type="checkbox" name="folk" id="folk" class="z"> </td>
+                    <td> <label id=folk1 for="folk">Folk</label></td>
+
+                </tr>
+
+            </table>
+        
+
+
+        </div>
+
+        <div class="dugme">
+            <button role="link" onclick="checkSelection()" style="width: 100px;height: 50px;">Dalje</button>
+        </div>
+
+    </div>
+
+    <script>
+        function checkSelection() {
+            const checkboxes = document.querySelectorAll('.z');
+            let anyChecked = false;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    anyChecked = true;
+                }
+            });
+            if (anyChecked) {
+                window.location.href = 'igra_sam.html'
+            } else {
+                alert("Nije izabran nijedan žanr!");
+            }
+        }
+    </script>
+
+</body>
+</html>

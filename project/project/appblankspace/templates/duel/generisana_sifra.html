@@ -1,0 +1,67 @@
+<!-- Autor: Jana Stanisavljević 0381/2021,Maša Nikolić 0439/2021 -->
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/duel/sifra_sobe.css' %}">
+{% endblock %}
+
+{% block photo%}
+<img class="rot" src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+    <div class="menu">
+      <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+      Generisana šifra sobe:
+      </div>
+      <div style="text-align: center;font-size: 30px;padding-bottom: 20px;font-weight: bold;padding-top: 40px;color:#e63da5c9">
+        {{sifra}}
+    </div>
+      <br>
+      <div style="text-align: center;font-size: 30px;padding-bottom: 5
+      0px;font-weight: bold;padding-top: 20px;"></div>
+      Kada drugi igrač unese šifru, počeće igra...
+      <button onclick="window.location.href = '{% url 'sifra_sobe' %}'">Odustani</button>
+      </div>
+    
+</div>
+</div>
+
+</body>
+<script>
+function proveri_stigao_igrac() {
+    /*
+    svake sekunde proverava da li je drugi igrac uneo generisanu sifru sobe i prelazi na odgovarajucu stranicu
+    */
+$.ajax({
+    url: '{% url "stigao_igrac" %}',
+    type: 'GET',
+    success: function(data) {
+        if (data.dosao) {
+            window.location.href = '{% url "duel" %}';
+        } else {
+            setTimeout(proveri_stigao_igrac, 1000);
+        }
+    },
+    error: function(xhr, status, error) {
+        console.error('Error checking room code:', error);
+    }
+});
+}
+
+$(document).ready(function() {
+    proveri_stigao_igrac();
+});
+</script>
+{% endblock %}

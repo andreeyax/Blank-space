@@ -1,0 +1,76 @@
+Uputstvo za prototip
+
+Početna strana aplikacije je na putanji pocetne/pocetna.html
+
+*NAPOMENA: Na nekim mestima greške nisu obrađivane jer se podrazumeva da se isto ispisuju kao na ostalim (alert). Na nekim mestima prelazi između stranica zavise od tipa korisnika koji je ulogovan,
+a to u prototipu nije proveravano.
+
+Login:
+	Kao administrator: admin, admin123
+	Kao brucos: brucos, brucos123
+	Kao student: student, student123
+	Kao master: master, master123
+
+Promena lozinke:
+	Korisnicko ime: brucos
+	Odgovor na pitanje: Mimi
+
+*NAPOMENA: Ispravni odgovori za prihvatanje predloga su isti kao za dodavanja!
+
+Dodavanje novog žanra:
+	Ispravan unos: Indie
+
+Dodavanje novog izvođača:
+	Prvi deo isti kao za dodavanje žanra
+	Ispravan unos: Phoebe Bridgers
+
+Dodavanje nove pesme:
+	Prva dva dela ista kao za dodavanje žanra i izvođača
+	Ispravan unos: Moon Song
+	*NAPOMENA: U prototip nije dodat ispis greške vezane za veličinu fajla!
+
+Uklanjanje žanrova
+	Radi kada se klikne na Ukloni za Pop, nakon uklanjanja vratiti se na početnu stranu
+
+Uklanjanje korisnika
+	Radi kada se klikne na Ukloni za prvog, nakon uklanjanja vratiti se na početnu stranu
+
+Uklanjanje izvođača
+	Radi kada se klikne na Ukloni za prvog, nakon uklanjanja vratiti se na početnu stranu
+
+Uklanjanje pesama
+	Radi kada se klikne na Ukloni za prvu, nakon uklanjanja vratiti se na početnu stranu
+
+Predlozi izvođača
+	Radi za prvi, nakon odbijanja vratiti se na početnu stranu
+
+Predlozi pesama
+	Radi za prvu, nakon odbijanja vratiti se na početnu stranu
+
+Predlaganje izvođača
+	Ispravan unos za ispisivanje poruke "U bazi vec postoji izvodjac sa imenom: Taylor Swift" je Taylor Swift.
+        Prilikom prvog unosa podataka i klikom na dugme "Predloži" ispisaće se poruka "Dostigli ste maksimalan broj predloga koji nisu razrešeni! Pokušajte ponovo kasnije.".
+        Ponovnik klikom na dugme "Predloži" predlog će biti "prihvaćen" tako što se prelazi na početnu stranicu mastera. 
+        
+
+Predlaganje pesme
+	Ispravan unos za ispisivanje poruke "U bazi vec postoji izvodjac sa imenom: Taylor Swift i pesma sa nazivom: Style" je Style i Taylor Swift.  
+        Prilikom prvog unosa podataka i klikom na dugme "Predloži" ispisaće se poruka "Dostigli ste maksimalan broj predloga koji nisu razrešeni! Pokušajte ponovo kasnije.".
+        Ponovnik klikom na dugme "Predloži" predlog će biti "prihvaćen" tako što se prelazi na početnu stranicu mastera. 
+        
+
+
+Igra sam sa sobom
+	Klikom na Pusti, pušta se pesma! Na isto dugme se i zaustavlja
+	Ispravan unos: You and me could write a bad romance
+	*NAPOMENA: U slučaju pogotka, prelazilo bi se ili na sledeću pesmu ili bi bio kraj igre, pa je u prototipu prikazan samo prelaz na kraj igre
+	Takođe, nije prikazana poruka koja bi se prikazivala kada istekne vreme
+	Nakon traženja pomoći, samo se vratiti jednom u nazad jer te stranice služe samo za prikaz
+
+Duel
+	Ispravan unos za sobu: 1
+	Klikom na Pusti, pušta se pesma! Na isto dugme se i zaustavlja
+	Ispravni stihovi: And you love the game
+	*NAPOMENA: U slučaju pogotka, prelazilo bi se ili na sledeću pesmu ili bi bio kraj igre, pa je u prototipu prikazan samo prelaz na kraj igre
+	Takođe, nije prikazana poruka koja bi se prikazivala kada istekne vreme
+

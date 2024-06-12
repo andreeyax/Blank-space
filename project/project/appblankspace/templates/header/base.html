@@ -1,0 +1,41 @@
+<!-- Autor: Maša Nikolić 0439/2021 -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    {% block styles %}
+    <link rel="stylesheet" href="{% static 'css/pocetne/pocetna.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+    {% block header %}
+    <div class="header">
+        {% block photo%}
+        <img class="rot" src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+        {% endblock %}
+        <div class="header-right">
+            {% block navigation %}
+            <a href="{% url 'pocetna' %}">Početna</a>
+            <a href="{% url 'pravila_igre' %}">Pravila igre</a>
+            <a href="{% url 'login' %}">Uloguj se</a>
+            {% endblock %}
+        </div>
+    </div>
+    {% endblock %}
+
+    <div class="main">
+        {% block left %}
+        {% endblock %}
+        {% block menu %}
+        {% endblock %}
+        {% block right %}
+        {% endblock %}
+    </div>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

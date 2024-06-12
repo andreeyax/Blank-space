@@ -1,0 +1,50 @@
+<!-- Autor: Jana Stanisavljević 0381/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="stilovi.css">
+    </head>
+    <body>
+        <div class="bodydiv">
+            <div class="header">
+                <img src="../photos/logofinal.jpg" height="60" width="60">
+                <div class="header-right">
+                    <a href="../pocetne/pocetna_administrator.html">Početna</a>
+                    <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                    <a href="../pocetne/pocetna.html">Izloguj se</a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="menu">
+              <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+                Naziv žanra
+              </div>
+              
+              <form id="forma">
+                <input type="text" name="naziv" id="naziv" class="round-input"><br>
+                <button type="button" id="dodaj" onclick="greska()">Dodaj žanr</button>
+              </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+      function greska() {
+        var naziv = document.getElementById('naziv').value;
+        if (naziv === "Indie") {
+          window.location.href = "ime_izvodjaca.html";
+        } else if (naziv == ""){
+          alert('Niste uneli naziv žanra!');
+        }
+        else {
+            alert('Uneti žanr već postoji!');
+        }
+      }
+    </script>
+    </body>
+</html>

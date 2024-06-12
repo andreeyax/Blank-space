@@ -1,0 +1,117 @@
+<!-- Autor: Andrija Tomić 0489/2021 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="igra_sam.css">
+    
+</head>
+<body style="background-color: rgb(240, 218, 231);">
+
+    <audio id="audioPlayer" preload="auto">
+        <source src="../songs/bad_romance_easy.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="bodydiv">
+        <div class="header">
+            <img class="rot" src="../photos/logofinal.jpg" height="60" width="60">
+            <div class="header-right">
+            </div>
+        </div>
+
+
+    <div class="menu">
+        <div id="divRundaVreme"> 
+            <div id="rundaVreme">Runda: 1&ensp;&ensp;Vreme:<span id="timer">27</span></div>
+        </div>
+
+        <div class="menu-top">
+            
+        </div>
+        <div class="menu-right">
+            <div style="justify-content: right; padding-right: 25px; font-size: 35px;">3&ensp;&#119070;</div>
+        </div>
+
+        <div id="tekst" style="font-size: 20px;  color: rgb(73, 0, 107);font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 700;display: flex;justify-content: center; padding-top: 40px;">
+            I want your love, and I want your revenge<br>
+            You and me could write a bad romance<br>
+            I want your love and all your lover's revenge<br>
+            _ _ _ &ensp;_ _ _ &ensp; _ _ &ensp; _ _ _ _ _ &ensp; _ _ _ _ &ensp; _ &ensp; _ _ _ &ensp; _ _ _ _ _ _ _
+        </div>
+
+        <div style="display: flex;justify-content: center;font-size: 20px;  padding-top: 20px;" id="unoste">
+            <input type="text" id="unos" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: rgb(73, 0, 107);width: 500px;" autocomplete="off"><br>
+        </div>
+        <div id="provera" style="display: flex;justify-content: center;padding-top: 70px;">
+            <button style="width: 100px;height: 50px;font-size: 25px;" onclick="pusti()">Pusti&ensp;&#119070;</button>
+            <button id="proverid" style="width: 100px;height: 50px;font-size: 25px !important;" onclick="proveri()">Proveri</button>
+            <button id="daljed" style="width: 100px;height: 50px;font-size: 25px;" onclick="window.location.href='kraj_igre.html'">Dalje</button>
+        </div>
+        <div id="ispisporuka" style="font-size: 30px;">
+        </div>
+        <div style="display: flex;padding-top: 70px;justify-content: center;" id="pomocdugm">
+
+            <table>
+                <tr>
+                    <td style="font-size: 30px;padding-top: 40px;">
+                       Pomoć
+                    </td>
+
+                    <td>
+                        <button class="buttonnovo" style="display: flex;width: 90px;height: 50px;padding-left: 10px;align-items: center;"
+                        onclick="window.location.href='igra_hint1.html'">Izvođač</button>
+                    </td>
+
+                    <td>
+                        <button class="buttonnovo" style="display: flex;width: 90px;height: 50px;padding-left: 15px;align-items: center;"
+                        onclick="window.location.href='igra_hint2.html'">Pesma</button>
+                    </td>
+
+                    <td>
+                        <button class="buttonnovo" style="display: flex;width: 90px;height: 50px;padding-left: 20px;align-items: center;"
+                        onclick="window.location.href='igra_hint3.html'">Slova</button>
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+    </div>
+
+    <script>
+
+        function proveri() {
+            var unos = document.getElementById('unos').value;
+            if (unos == "You and me could write a bad romance") {
+                document.getElementById("ispisporuka").innerHTML="Tačan odgovor";
+                document.getElementById("ispisporuka").style.color="rgb(100, 150, 100)";
+                setTimeout(function(){
+                    window.location.href = "kraj_igre.html";
+                },2000)
+                
+            }
+            else {
+                setTimeout(function(){
+                    document.getElementById("ispisporuka").innerHTML="";
+                },2000)
+                document.getElementById("ispisporuka").innerHTML="Netačan odgovor";
+                document.getElementById("ispisporuka").style.color="red";
+            }
+        }
+
+        function pusti() {
+            var audioPlayer = document.getElementById('audioPlayer');
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+            audioPlayer.pause();
+            }
+        }
+
+      </script>
+
+    
+</body>
+</html>

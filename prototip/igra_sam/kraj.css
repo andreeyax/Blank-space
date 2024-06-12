@@ -1,0 +1,155 @@
+/*Autor: Autor: Andrija Tomić 0489/2021 */
+.bodydiv{
+    overflow: auto;
+  }
+  .header{
+      background-color: lightblue;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+  
+      position:fixed;
+      padding:0;
+      margin:0;
+  
+      top:0;
+      left:0;
+  
+      width: 100%;
+  
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+  
+    .header a {
+      float: left;
+      color: rgb(73, 0, 107);
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+
+    .container-fluid{
+        
+      color: rgb(73, 0, 107);
+      text-align: left;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+
+    .header-right {
+      margin-left: auto;
+    }
+
+
+    .header-left {
+        margin-right: auto;
+    }
+  
+    .header a:hover {
+      background-color: rgb(216, 245, 255);
+      color: rgb(73, 0, 107);
+    }
+    .header a:active {
+      background-color: #9d08b1b4;
+      color: white;
+    }
+  
+    img{
+      padding-left: 15px;
+      margin-right: auto;
+    }
+  
+  
+    .main{
+      padding:0;
+      margin:0;
+  
+      top:70px;
+      left:0;
+  
+      height: 1200px;
+      width: 100%;
+      background-color: rgb(240, 218, 231);
+      display: flex;
+      justify-content: center;
+    }
+  
+    .menu{
+      margin-top: 50px;
+      height: 800px;
+      width: 700px;
+      background-color: white;
+      margin: 7em auto;
+      border-radius: 1.5em;
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+      font-size: 20px;
+      color: rgb(73, 0, 107);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      text-align: center;
+    }
+  
+    
+  
+    button{
+      cursor: pointer;
+      border-radius: 5em;
+      color: #fff;
+      background: linear-gradient(to right, #9d08b1b4, #e63da5c9);
+      border: 0;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 20px;
+      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+      display: table;
+      margin: 0 auto;
+      margin-top: 30px;
+    }
+    button:hover{
+      background: linear-gradient(to left, #9d08b1b4, #e63da5c9);
+    }
+    button:active{
+      background: #9d08b1b4
+    }
+
+    td {
+        padding:15px;
+        white-space: nowrap;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+   
+    tr:nth-child(even) {
+        background-color: #e3f1fc;
+    }
+
+    tr:nth-child(odd) {
+        background-color:  #fce3fa;
+    }
+
+    table{
+        width: 30%;
+        background-color: #ccc;
+        border-radius:10px;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        border: 3px solid purple;
+    }

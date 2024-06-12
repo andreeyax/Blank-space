@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="../dodavanje/stilovi.css">
+    </head>
+    <body>
+        <div class="bodydiv">
+            <div class="header">
+                <img src="../photos/logofinal.jpg" height="60" width="60">
+                <div class="header-right">
+                    <a href="../pocetne/pocetna_administrator.html">Početna</a>
+                    <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                    <a href="../pocetne/pocetna.html">Izloguj se</a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="menu">
+              <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+                Kojem izvođaču pripadaju pesme koje uklanjate?
+              </div>
+              
+              <form id="forma">
+                <label for="Izvođač 1">Izvođač 1</label>
+                <input type="radio" name="izv" id="Izvođač 1" checked>
+                <label for="Izvođač 2">Izvođač 2</label>
+                <input type="radio" name="izv" id="Izvođač 2">
+                <label for="Izvođač 3">Izvođač 3</label>
+                <input type="radio" name="izv" id="Izvođač 3"> 
+                <button type="button" id="dalje" onclick="window.location.href='uklanjanje_pesama.html'">Dalje</button>
+              </form>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

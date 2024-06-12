@@ -1,0 +1,102 @@
+<!-- Autor: Jana Stanisavljević 0381/2021, Maša Nikolić 0439/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="stilovi.css">
+    </head>
+    <body>
+        <div class="bodydiv">
+            <div class="header">
+                <img src="../photos/logofinal.jpg" height="60" width="60">
+                <div class="header-right">
+                    <a href="../pocetne/pocetna_master.html">Početna</a>
+                    <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                    <a href="../pocetne/pocetna.html">Izloguj se</a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="menu">
+              <form id="forma">
+                <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+                    Naziv pesme
+                </div>
+                <input type="text" name="pesma" id="pesma" class="round-input"><br>
+                <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+                    Ime izvođača
+                </div>
+                
+				<select name="izvodjac" id="izvodjac">
+       				<option value="Taylor Swift">Taylor Swift</option>
+					<option value="Harry Styles">Harry Styles</option>
+					<option value="Toma Zdravkovic">Toma Zdravkovic</option>
+					<option value="Balasevic">Balasevic</option>
+					<option value="Post Malone">Post Malone</option>
+          
+                </select>
+				
+                <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+                    Naziv žanra
+                </div>
+                 <label for="zanr">Pop Strani</label>
+                   <input type="radio" name="zanr" id="1" value="1" >
+				   <label for="zanr">Pop Domaci</label>
+                   <input type="radio" name="zanr" id="2" value="2" >
+				   <label for="zanr">Folk</label>
+                   <input type="radio" name="zanr" id="3" value="3" >
+				   <label for="zanr">Narodna</label>
+                   <input type="radio" name="zanr" id="4" value="4" >
+				   <label for="zanr">Rep</label>
+                   <input type="radio" name="zanr" id="5" value="5" >
+                <button type="button" id="dodaj" onclick="greska()">Predloži</button>
+              </form>
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+	  let x=-1;
+      function greska() {
+	    x++;
+		var pesma = document.getElementById('pesma').value;
+		let zanr = document.querySelector('input[name="zanr"]:checked');
+		let izvodjac = document.getElementById('izvodjac');
+		
+		if(pesma == "" && zanr!=null && izvodjac!=null) {
+			alert("Niste uneli ime pesme");
+			return;
+		}
+		else if(pesma != "" && zanr==null && izvodjac!=null) {
+			alert("Niste selektovali zanr pesme");
+			return;
+		}
+		else if(pesma != "" && zanr!=null && izvodjac==null) {
+			alert("Niste selektovali ime izvodjaca");
+			return;
+		}
+		else if(pesma == "" || zanr==null || izvodjac==null) {
+			alert("Niste uneli sve podatke");
+			return;
+		}
+		let selektovanZanr = document.querySelector('input[name="zanr"]:checked').value;
+		let selektovanIzvodjac = document.getElementById('izvodjac').value;
+		
+		if(selektovanIzvodjac=="Taylor Swift" && pesma.toLowerCase()=="style"){
+		    alert("U bazi vec postoji izvodjac sa imenom: Taylor Swift i pesma sa nazivom: Style");
+			return;
+		}
+	  
+        if(x==0){ 
+		    alert("Dostigli ste maksimalan broj predloga koji nisu razrešeni! Pokušajte ponovo kasnije.");
+		}else{
+		    window.location.href="../pocetne/pocetna_master.html"
+		}
+      }
+    </script>
+    </body>
+</html>

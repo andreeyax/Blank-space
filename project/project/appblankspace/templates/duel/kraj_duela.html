@@ -1,0 +1,67 @@
+<!-- Autor: Maša Nikolić 0439/2021, Jana Stanisavljević 0381/2021 -->
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/duel/kraj.css' %}">
+{% endblock %}
+
+{% block photo%}
+<img class="rot" src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'vrati_na_pocetnu' %}">Početna</a>
+<a href="{% url 'pravila_igre' %}">Pravila igre</a>
+{% if ulogovan %}
+  <a href="{% url 'logout' %}">Izloguj se</a>
+{% else %}
+  <a href="{% url 'login' %}">Uloguj se</a>
+{% endif %}
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+  <div class="menu">
+    <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+        Rezultat
+    </div>
+   
+    <div style="display: flex;justify-content: center;">
+      <table>
+        <tr style="border-bottom: 1px solid;border-color: black;">
+            <td>Runda</td>
+            <td>{{igrac1}}</td>
+            <td>{{igrac2}}</td>
+        </tr>
+        
+        {% for poeni_runda in poeni_runde %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ poeni_runda.0 }}</td>
+            <td>{{ poeni_runda.1 }}</td>
+        </tr>
+        {% endfor %}
+  
+        <tr>
+            <td>ukupno</td>
+            <td>{{ poeni.0 }}</td>
+            <td>{{ poeni.1 }}</td>
+        </tr>
+    </table>
+    </div>
+    <div>
+      <button onclick="window.location.href='{% url 'sifra_sobe'%}'">Igraj ponovo</button>
+      <button onclick="window.location.href='{% url 'vrati_na_pocetnu'%}'">Kraj</button>
+    </div>
+</div>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+<!-- Autor: Jana Stanisavljević 0381/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="stilovi.css">
+    </head>
+    <body>
+        <div class="bodydiv">
+            <div class="header">
+                <img src="../photos/logofinal.jpg" height="60" width="60">
+                <div class="header-right">
+                    <a href="../pocetne/pocetna_administrator.html">Početna</a>
+                    <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                    <a href="../pocetne/pocetna.html">Izloguj se</a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div>
+                    <div class="container">
+                      <div class="title">Podaci o pesmi</div>
+                      <div class="content">
+                        <form action="#">
+                          <div class="user-details">
+                            <div class="input-box">
+                              <span class="details">Poznati stihovi</span>
+                              <textarea class="box" id="stihovi1"></textarea>
+                            </div>
+                            <div class="input-box">
+                              <span class="details">Nepoznati stihovi</span>
+                              <textarea class="box" id="stihovi2"></textarea>
+                            </div>
+                            <div>
+                                <span class="details">Nivo</span>
+                                <br><br>
+                                <label for="easy">Easy</label>
+                                <input class="box" type="radio" name="nivo" id="easy" checked>
+                                <label for="normal">Normal</label>
+                                <input class="box" type="radio" name="nivo" id="normal">
+                                <label for="hard">Hard</label>
+                                <input class="box" type="radio" name="nivo" id="hard">
+                            </div>                            
+                            <div class="input-box">
+                              <span class="details">Dodaj zvuk</span>
+                                <input type="file" id="fileInput" onchange="checkFileType()">
+                              </div>
+                          <button onclick="return greska()">Dodaj pesmu</button>
+                        </form>
+                      </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+
+        function checkFileType() {
+            const fileInput = document.getElementById('fileInput');
+            const files = fileInput.files;
+    
+            const file = files[0];
+            const fileName = file.name;
+            const fileExtension = fileName.split('.').pop();
+
+            if (fileExtension.toLowerCase() != 'mp3') {
+                alert('Pogrešan tip fajla - mora biti mp3!');
+                fileInput.value = '';
+                return;
+            }
+        }
+
+        function greska() {
+            const fileInput = document.getElementById('fileInput');
+            const files = fileInput.files;
+            if (files.length === 0) {
+                alert('Niste uneli fajl sa zvukom!');
+                return;
+            }
+            if(document.getElementById('stihovi1').value == "" || document.getElementById('stihovi2').value == "") {
+                alert('Niste uneli stihove!');
+                return;
+            }
+            alert("Uspešno izvršeno!");
+            window.location.href = "../pocetne/pocetna_administrator.html";
+            return false;
+        }
+
+    </script>
+    </body>
+</html>

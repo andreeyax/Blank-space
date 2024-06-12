@@ -1,0 +1,45 @@
+<!-- Autor: Tamara Radojčić 0214/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="forgotpasscss.css">
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+        <div class="header">
+            <img src="../photos/logofinal.jpg" height="60" width="60">
+            <div class="header-right">
+                <a href="../pocetne/pocetna.html">Početna</a>
+                <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                <a href="../autorizacija/login.html">Uloguj se</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <p class="sign">Zaboravljena lozinka</p>
+                <form class="form1">
+                    <div class="input-box">
+                        <input class="box" type="text" placeholder="Korisnicko ime" id="korime" required>
+                    </div>
+                    <button class="submit" onclick=" return forgot()">Postavi pitanje</button>
+            </div>
+        </div>
+        <script>
+            function forgot(){
+                var korime=document.getElementById('korime').value;
+                if (korime == "brucos"){
+                    window.location.href = "forgotpassq.html";
+                    return false;
+                
+                } else {
+                    if(korime!=""){
+                        alert("Korisničko ime ne postoji!");
+                    }
+                    return;
+                }
+
+            }
+        </script>
+    </body>
+</html>

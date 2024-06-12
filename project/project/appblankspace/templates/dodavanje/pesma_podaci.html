@@ -1,0 +1,112 @@
+<!-- Autor: Jana Stanisavljević 0381/2021, Maša Nikolić 0439/2021 -->
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dodavanje/stilovi.css' %}">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna_administrator'%}">Početna</a>
+<a href="{% url 'pravila_igre'%}">Pravila igre</a>
+<a href="{% url 'logout'%}">Izloguj se</a>
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+  <div>
+          <div class="container">
+            <div class="title">Podaci o pesmi</div>
+            <div class="content">
+              <form id="forma" method="POST" action="/pesma_podaci/dodavanje/" onsubmit="return validacijaForme()" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="user-details">
+                  <div class="input-box">
+                    <span class="details">Naziv pesme</span>
+                    <input class="box" type="text" id="naziv" name="naziv">
+                  </div>
+                  <div class="input-box">
+                    <span class="details">Nepoznati stihovi</span>
+                    <textarea class="box" id="stihovi1" name="stihovi1"></textarea>
+                  </div>
+                  <div class="input-box">
+                    <span class="details">Poznati stihovi</span>
+                    <textarea class="box" id="stihovi2" name="stihovi2"></textarea>
+                  </div>
+                  <div>
+                      <span class="details">Nivo</span>
+                      <br><br>
+                      <label for="easy">Easy</label>
+                      <input class="box" type="radio" name="nivo" id="easy" value="E" checked>
+                      <label for="normal">Normal</label>
+                      <input class="box" type="radio" name="nivo" id="normal" value="N">
+                      <label for="hard">Hard</label>
+                      <input class="box" type="radio" name="nivo" id="hard" value="H">
+                  </div>                            
+                  <div class="input-box">
+                    <span class="details">Dodaj zvuk</span>
+                      <input type="file" id="fileInput" onchange="checkFileType()" name="fileInput">
+                    </div>
+                <button type="submit">Dodaj pesmu</button>
+              </form>
+            </div>
+          </div>
+  </div>
+</div>
+</div>
+<script>
+  function validacijaForme(){
+    let naziv=document.getElementById("naziv").value;
+    let stihovi1=document.getElementById('stihovi1').value;
+    let stihovi2=document.getElementById('stihovi2').value;
+    if(naziv=="" && stihovi1!="" && stihovi2!=""){
+      alert('Niste uneli naziv pesme!');
+      return false;
+    }
+    else if(naziv!="" && (stihovi1=="" || stihovi2=="")){
+      alert('Niste uneli stihove!');
+      return false;
+    }
+    else if(naziv=="" || stihovi1=="" || stihovi2=="") {
+      alert('Niste uneli sve podatke!');
+      return false;
+    }
+    const fileInput = document.getElementById('fileInput');
+    const files = fileInput.files;
+    if (files.length === 0) {
+        alert('Niste uneli fajl sa zvukom!');
+        return false;
+    }
+    const file = files[0];
+    const fileName = file.name;
+    const fileExtension = fileName.split('.').pop();
+
+    if (fileExtension.toLowerCase() != 'mp3') {
+        alert('Pogrešan tip fajla - mora biti mp3!');
+        fileInput.value = '';
+        return false;
+    }
+
+    return true;
+  }
+
+function checkFileType() {
+  const fileInput = document.getElementById('fileInput');
+  const files = fileInput.files;
+  
+  const file = files[0];
+  const fileName = file.name;
+  const fileExtension = fileName.split('.').pop();
+
+  if (fileExtension.toLowerCase() != 'mp3') {
+      alert('Pogrešan tip fajla - mora biti mp3!');
+      fileInput.value = '';
+      return;
+  }
+}
+</script>
+{% endblock %}

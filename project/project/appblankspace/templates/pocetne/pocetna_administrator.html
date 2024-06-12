@@ -1,0 +1,46 @@
+<!-- Autor: Jana Stanisavljević 0381/2021, Maša Nikolić 0439/2021-->
+
+{% extends 'header/base.html' %}
+{% load static %}
+
+{% block title %}
+pocetna_brucos.html
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/pocetne/pocetna_ulogovan.css' %}">
+{% endblock %}
+
+{% block photo%}
+<img src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna_administrator'%}">Početna</a>
+<a href="{% url 'pravila_igre' %}">Pravila igre</a>
+<a href="{% url 'logout'%}">Izloguj se</a>
+{% endblock %}
+
+{% block menu %}
+<div class="menu">
+    <h2>Ulogovani ste kao {{korisnik.ime}}!</h2>
+    <div class="action-buttons">
+        <div class="button-row">
+            <button onclick="window.location.href='{% url 'naziv_zanra'%}'">Dodaj žanr</button>
+            <button onclick="window.location.href='{% url 'izbor_zanra1'%}'" style="margin-left: 60px;">Dodaj izvođača</button>
+            <button onclick="window.location.href='{% url 'izbor_zanra2'%}'">Dodaj pesmu</button>
+        </div>
+        <div class="button-row">
+            <button onclick="window.location.href='{% url 'uklanjanje_zanrova'%}'">Ukloni žanrove</button>
+            <button onclick="window.location.href='{% url 'izbor_zanra1Uklanjanje'%}'">Ukloni izvođače</button>
+            <button onclick="window.location.href='{% url 'izbor_zanra2Uklanjanje'%}'">Ukloni pesme</button>
+            
+        </div>
+    </div>
+    <div class="additional-buttons">
+        <button onclick="window.location.href='{% url 'uklanjanje_korisnika'%}'">Ukloni korisnike</button>
+        <button onclick="window.location.href='{% url 'predlozi_izvodjaca'%}'">Predlozi izvođača</button>
+        <button onclick="window.location.href='{% url 'predlozi_pesama'%}'">Predlozi pesama</button>
+    </div>
+</div>
+{% endblock %}

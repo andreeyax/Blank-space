@@ -1,0 +1,82 @@
+<!-- Autor: Tamara Radojčić 0214/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="logincss.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="header">
+            <img src="../photos/logofinal.jpg" height="60" width="60">
+            <div class="header-right">
+                <a href="../pocetne/pocetna.html">Početna</a>
+                <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                <a href="../autorizacija/login.html">Uloguj se</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="login">
+                <p class="sign">Prijava</p>
+                <form class="form1">
+                    <div class="input-box">
+                        <input class="box" type="text"  placeholder="Korisnicko ime" id="ime" required>
+                    </div>
+                    <div class="input-box">
+                        <input class="box" type="password"  placeholder="Lozinka" id="lozinka" required>
+                    </div>
+                    <button class="submit" onclick=" return login()">Prijavi se</button>
+                    <div class="forg">
+                        <a href="forgotpass.html"><p class="forgot">Zaboravili ste lozinku?</p></a>
+                    </div>
+
+                    <div class="main-bottom">
+                        <p class="noacc">Još nemate nalog?</p>
+                        <a class="butreg" href="registration.html"><p class="reg">Registrujte se</p></a>
+                    </div>
+                    
+            </div>
+        </div>
+
+    <script>
+    function login() {
+    var ime = document.getElementById('ime').value;
+    var lozinka = document.getElementById('lozinka').value;
+
+    if (ime == "admin") {
+        if (lozinka != "admin123") {
+            alert("Pogrešna lozinka!");
+            return;
+        }
+        window.location.href = "../pocetne/pocetna_administrator.html";
+        return false;
+    } else if (ime == "brucos") {
+        if (lozinka != "brucos123") {
+            alert("Pogrešna lozinka!");
+            return;
+        }
+        window.location.href = "../pocetne/pocetna_brucos.html";
+        return false;
+    } else if (ime == "student") {
+        if (lozinka != "student123") {
+            alert("Pogrešna lozinka!");
+            return;
+        }
+        window.location.href = "../pocetne/pocetna_student.html";
+        return false;
+    } else if (ime == "master") {
+        if (lozinka != "master123") {
+            alert("Pogrešna lozinka!");
+            return;
+        }
+        window.location.href = "../pocetne/pocetna_master.html";
+        return false;
+    } else {
+        if(!(ime=="" || lozinka=="")){
+            alert("Pogrešni podaci!");
+    }
+    }
+}
+    </script>
+
+    </body>
+</html>

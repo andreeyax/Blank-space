@@ -1,0 +1,43 @@
+<!-- Autor: Jana Stanisavljević 0381/2021 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cekanje rezultata</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="sifra_sobe.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="menu">
+          <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+          Igra je završena, rezultat se obrađuje...
+          </div>
+          <br>
+          <div style="text-align: center;font-size: 30px;padding-bottom: 5
+          0px;font-weight: bold;padding-top: 20px;" id="drugi"></div>
+          Čeka se da drugi igrač završi igru...
+          </div>
+        
+    </div>
+    </div>
+</body>
+
+<script>
+    function redirectAfter10Seconds() {
+              setTimeout(function() {
+                let rand = Math.floor(Math.random() * 2);
+                if(rand % 2 == 0)
+                    window.location.href = "kraj_duela.html";
+                else
+                ispis.textContent = "Drugi igrač je odustao!";
+                ispis.style.color = "#e63da5c9";
+              }, 10000);
+          }
+  
+          window.onload = redirectAfter10Seconds;
+  </script>

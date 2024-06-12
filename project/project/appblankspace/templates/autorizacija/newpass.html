@@ -1,0 +1,51 @@
+<!-- Autor: Tamara Radojčić 0214/2021, Maša Nikolić 0439/2021 -->
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/autorizacija/login.css' %}">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna'%}" onclick="handleLinkClick(event)">Početna</a>
+<a href="{% url 'pravila_igre' %}" onclick="handleLinkClick(event)">Pravila igre</a>
+<a href="{% url 'login' %}">Uloguj se</a>
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+    <div class="login">
+        <p class="sign">Promena lozinke</p>
+        <form class="form1" method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <input class="box" type="password"  placeholder="Nova lozinka" id="lozinka1" name="lozinka1">
+            </div>
+            <div class="input-box">
+                <input class="box" type="password"  placeholder="Potvrdite lozinku" id="lozinka2" name="lozinka2">
+            </div>
+            <div id="messages" class="alert-mess"><p hidden>aaa</p>
+                {% for message in messages %}
+                <p class="alert-heading"><strong> {{ message }} </strong></p>
+                {% endfor %}
+            </div>
+            <button class="submit" >Promeni lozinku</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function handleLinkClick(event) {
+        event.preventDefault();
+      
+        document.cookie = 'korisnickoIme' + '=; Max-Age=0; path=/';
+        document.cookie = 'ulogovanTip' + '=; Max-Age=0; path=/';
+    
+        window.location.href = event.target.href;
+      }
+    
+    </script>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!-- Autor: Jana Stanisavljević 0381/2021, Maša Nikolić 0439/2021- -->
+{% extends 'header/base.html' %}
+{% load static %}
+
+{% block title %}
+pocetna_student.html
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/pocetne/pocetna_ulogovan.css' %}">
+{% endblock %}
+
+{% block photo%}
+<img src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna_student'%}">Početna</a>
+<a href="{% url 'pravila_igre' %}">Pravila igre</a>
+<a href="{% url 'logout'%}">Izloguj se</a>
+{% endblock %}
+
+{% block menu %}
+<div class="menu">
+    <h2>Ulogovani ste kao {{korisnik.ime}}!</h2>
+    <div class="play">
+        <button onclick="window.location.href='{% url 'nivo'%}'">Igraj sam</button>
+        <button onclick="window.location.href='{% url 'sifra_sobe'%}'">Igraj u duelu</button>
+        <button onclick="window.location.href='{% url 'pregled_profila'%}'">Moj profil</button>
+        <button onclick="window.location.href='{% url 'rang_lista'%}'">Rang lista</button>
+        <button onclick="window.location.href='{% url 'predlaganje_izvodjaca' %}'">Predloži izvođača</button>
+    </div>
+    
+</div>
+{% endblock %}

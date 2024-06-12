@@ -1,0 +1,88 @@
+<!-- Autor: Tamara Radojčić 0214/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="registrationcss.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="header">
+            <img src="../photos/logofinal.jpg" height="60" width="60">
+            <div class="header-right">
+                <a href="../pocetne/pocetna.html">Početna</a>
+                <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                <a href="../autorizacija/login.html">Uloguj se</a>
+            </div>
+        </div>
+        <div class="main">
+          <div>
+                  <div class="container">
+                    <div class="title">Registracija</div>
+                    <div class="content">
+                      <form action="#">
+                        <div class="user-details">
+                          <div class="input-box">
+                            <span class="details">Ime i prezime</span>
+                            <input class="box" type="text" placeholder="Unesite ime i prezime" id="ime" required>
+                          </div>
+                          <div class="input-box">
+                            <span class="details">Korisničko ime</span>
+                            <input class="box" type="text" placeholder="Unesite korisnicko ime" id="korime" required>
+                          </div>
+                          <div class="input-box">
+                            <span class="details">Lozinka</span>
+                            <input class="box" type="password" placeholder="Unesite lozinku" id="lozinka" required>
+                          </div>
+                          <div class="input-box">
+                            <span class="details">Potvrda lozinke</span>
+                            <input class="box" type="password" placeholder="Ponovo unesite lozinku" id="plozinka" required>
+                          </div>
+                          <div class="input-box">
+                            <span class="details">Pitanje za oporavak lozinke</span>
+                            <input class="box" type="text" placeholder="Unesite pitanje" id="pitanje" required>
+                          </div>
+                          <div class="input-box">
+                            <span class="details">Odgovor na pitanje</span>
+                            <input class="box" type="text" placeholder="Unesite odgovor" id="odgovor" required>
+                          </div>
+                        </div>
+                        <button class="submit" onclick=" return register()" >Registruj se</button>
+                      </form>
+                    </div>
+                    <div class="main-bottom">
+                      <p class="yesacc">Imate nalog?</p>
+                      <a class="butreg" href="login.html"><p class="reg">Prijavite se</p></a>
+                  </div>
+                  </div>
+                  
+          </div>
+      </div>
+
+      <script>
+        function isValid(str){
+          return /^(?=.*[A-Za-z])(?=.*\d).{5,}$/.test(str)
+        }
+
+        function register() {
+        var ime = document.getElementById('ime').value;
+        var korime = document.getElementById('korime').value;
+        var lozinka = document.getElementById('lozinka').value;
+        var plozinka = document.getElementById('plozinka').value;
+        var pitanje = document.getElementById('pitanje').value;
+        var odgovor = document.getElementById('odgovor').value;
+    
+        if (!(ime == "" || korime == "" || lozinka == ""|| plozinka == "" || pitanje == "" || odgovor == "")) {
+          if(isValid(lozinka)){
+            window.location.href ="../pocetne/pocetna_brucos.html";
+            alert("Uspesno ste registrovani!");
+            return false;
+          }
+          else{
+            alert("Lozinka mora imati bar 1 slovo i broj i biti dugacka minimum 5 karaktera");
+          }
+        }
+        }
+        </script>
+
+  </body>
+</html>

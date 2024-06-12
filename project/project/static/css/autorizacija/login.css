@@ -1,0 +1,197 @@
+/* Autor: Tamara Radojčić 0214/2021 */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.header {
+    background-color: lightblue;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.header img {
+    padding-left: 15px;
+}
+
+.header a {
+    color: rgb(73, 0, 107);
+    padding: 12px;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.header-right {
+    margin-left: auto;
+}
+
+.header a:hover {
+    background-color: rgb(216, 245, 255);
+    color: rgb(73, 0, 107);
+}
+
+.header a:active {
+    background-color: #9d08b1b4;
+    color: white;
+}
+
+
+.main {
+    padding-top: 70px;
+    background-color: rgb(240, 218, 231);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login {
+    background-color: #FFFFFF;
+    width: 500px;
+    height: auto;
+    margin: 0 auto;
+    padding: 3em;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+    color: #8C55AA;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #9b59b6;
+}
+
+.box {
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 130, 0.116);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form1 {
+    padding-top: 40px;
+}
+
+
+.submit,
+.reg {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #9d08b1b4, #e63da5c9);
+    border: 0;
+    padding: 10px 40px;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.submit:hover,
+.reg:hover {
+    background: linear-gradient(to left, #9d08b1b4, #e63da5c9);
+}
+
+.submit:active,
+.reg:active {
+    background: #9d08b1b4;
+}
+
+.forg{
+    text-align: center;
+}
+
+.forg a {
+    color: #8C55AA;
+    font-weight: bold;
+}
+
+.forg a:hover,
+.forg a:active {
+    text-decoration: underline;
+    color: #8C55AA;
+}
+
+.main-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.noacc {
+    font-size: 18px;
+    font-weight: lighter;
+    color: #8C55AA;
+}
+
+button{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media (max-width: 600px) {
+    .main {
+        border-radius: 0px;
+    }
+}
+
+.alert-mess {
+    color: #f44336;
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+    padding: 15px;
+    border-radius: 5px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.alert-heading {
+    margin: 0;
+    white-space: nowrap;
+}
+

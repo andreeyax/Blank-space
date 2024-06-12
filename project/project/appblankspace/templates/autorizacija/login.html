@@ -1,0 +1,48 @@
+<!-- Autor: Tamara Radojčić 0214/2021, Maša Nikolić 0439/2021 -->
+
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/autorizacija/login.css' %}">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'vrati_na_pocetnu'%}">Početna</a>
+<a href="{% url 'pravila_igre' %}">Pravila igre</a>
+<a href="{% url 'login' %}">Uloguj se</a>
+{% endblock %}
+
+{% block menu %}
+<div class="main" id="main">
+    <div class="login">
+        <p class="sign">Prijava</p>
+        <form class="form1" method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <input class="box" type="text"  placeholder="Korisnicko ime" id="ime" name="korime" required>
+            </div>
+            <div class="input-box">
+                <input class="box" type="password"  placeholder="Lozinka" id="lozinka" name="loz" required>
+            </div>
+            <div id="messages" class="alert-mess"><p hidden>aaa</p>
+                {% for message in messages %}
+                <p class="alert-heading"><strong> {{ message }} </strong></p>
+                {% endfor %}
+            </div>
+            <button class="submit" >Prijavi se</button>
+            <div class="forg">
+                <a href="{% url 'forgotpass' %}"><p class="forgot">Zaboravili ste lozinku?</p></a>
+            </div>
+            <div class="main-bottom">
+                <p class="noacc">Još nemate nalog?</p>
+                <a class="butreg" href="{% url 'registration'%}"><p class="reg">Registrujte se</p></a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

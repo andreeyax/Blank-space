@@ -1,0 +1,242 @@
+/*Autor: Tamara Radojčić 0214/2021 */
+.header{
+    background-color: lightblue;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  }
+  .header a {
+    float: left;
+    color: rgb(73, 0, 107);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+  .header-right {
+    margin-left: auto;
+  }
+  .header a:hover {
+    background-color: rgb(216, 245, 255);
+    color: rgb(73, 0, 107);
+  }
+  .header a:active {
+    background-color: #9d08b1b4;
+    color: white;
+  }
+  img{
+    padding-left: 15px;
+    margin-right: auto;
+  }
+  .main{
+    padding:0;
+    margin:0;
+
+    top:70px;
+    left:0;
+
+    height: 1000px;
+    width: 100%;
+    background-color: rgb(240, 218, 231);
+    display: flex;
+    justify-content: center;
+  }
+
+.login {
+    background-color: #FFFFFF;
+    width: 500px;
+    height: 800px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+    padding-top: 40px;
+    color: #8C55AA;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    display: table;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.container{
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #8C55AA;
+  }
+  .container .title{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+
+  .content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+    font-size: 20px;
+  }
+  form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  form .input-box span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  .user-details .input-box input:focus,
+  .user-details .input-box input:valid{
+    border-color: #9b59b6;
+  }
+   form input[type="radio"]{
+     display: none;
+   }
+   .box {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 130, 0.116);
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    border-radius: 5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+   .submit {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #9d08b1b4, #e63da5c9);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: table;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+   
+   @media(max-width: 584px){
+   .container{
+    max-width: 100%;
+  }
+  form .user-details .input-box{
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    form .category{
+      width: 100%;
+    }
+    .content form .user-details{
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+      width: 5px;
+    }
+    }
+    @media(max-width: 459px){
+    .container .content .category{
+      flex-direction: column;
+    }
+  }
+
+  
+  .main-bottom{
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+a{
+    text-decoration: none;
+}
+
+  .yesacc{
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+    color: #8C55AA;
+}
+
+.reg{
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #9d08b1b4, #e63da5c9);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    margin-left: auto;
+}
+.butreg{
+    margin-left: auto;
+}
+  .reg:hover{
+    background: linear-gradient(to left, #9d08b1b4, #e63da5c9);
+}
+.reg:active{
+    background: #9d08b1b4
+}
+
+.submit:hover{
+  background: linear-gradient(to left, #9d08b1b4, #e63da5c9);
+}
+.submit:active{
+  background: #9d08b1b4
+}

@@ -1,0 +1,72 @@
+<!-- Autor: Andrija Tomić 0489/2021, Maša Nikolić 0439/2021  -->
+
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{% static 'potrebni fajlovi/jquery-3.7.0.min.js' %}"></script>
+{% endblock %}
+
+{% block styles %}
+<script src="{% static 'js/igra_sam/kraj_igre.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/igra_sam/kraj.css' %}">
+{% endblock %}
+
+{% block photo%}
+<img class="rot" src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'vrati_na_pocetnu' %}">Početna</a>
+<a href="{% url 'pravila_igre' %}">Pravila igre</a>
+{% if ulogovan %}
+  <a href="{% url 'logout' %}">Izloguj se</a>
+{% else %}
+  <a href="{% url 'login' %}">Uloguj se</a>
+{% endif %}
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+    <div class="menu">
+      <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+          Rezultat
+      </div>
+     
+      <div style="display: flex;justify-content: center;" id="rezultat">
+          Kraj igre!<br>
+          Broj osvojenih poena: {{poeni}}
+      </div>
+      <div>
+        <button onclick="window.location.href='{% url 'nivo'%}'">Igraj ponovo</button>
+        <button onclick="predji()">Kraj</button>
+      </div>
+  </div>
+  
+</div>
+</div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+});
+
+function predji(){
+    if('{{tip}}'=='B'){
+        window.location.href="/pocetna_brucos/";
+    }
+    else if('{{tip}}'=='S'){
+        window.location.href="/pocetna_student/";
+    }
+    else if('{{tip}}'=='M'){
+        window.location.href="/pocetna_master/";
+    }
+    else{
+        window.location.href="/"
+    }
+}
+</script>
+{% endblock %}

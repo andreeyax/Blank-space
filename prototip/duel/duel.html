@@ -1,0 +1,105 @@
+<!-- Autor: Maša Nikolić 0439/2021 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>duel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="duel.css">
+</head>
+
+<body>
+
+  <audio id="audioPlayer" preload="auto">
+    <source src="../songs/blank_space_easy.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="bodydiv">
+    <div class="header">
+        <img class="rot" src="../photos/logofinal.jpg" height="60" width="60">
+        <div class="header-right">
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="menu">
+
+          <div id="divRundaVreme"> 
+            <div id="rundaVreme">Runda:1&ensp;&ensp;Vreme:23</div>
+          </div>
+
+          <div class="menu-top">
+            <div class="menu-left" style="white-space: nowrap;">
+                <button onclick="pusti()" style="margin-left: 20px; font-size: 20px;">Pusti&ensp;&#119070;</button>
+            </div>
+            <div class="menu-right">
+                <div style="justify-content: right; padding-right: 25px; font-size: 35px;">5&ensp;&#119070;</div>
+            </div>
+        </div>
+    
+          <div class="container mt-5 text-center">
+            <br>
+            <h4>So it's gonna be forever <br>
+              Or it's gonna go down in flames <br>
+              You can tell me when it's over, mm <br>
+              If the high was worth the pain <br>
+              Got a long list of ex-lovers <br>
+              They'll tell you I'm insane <br>
+              'Cause you know I love the players <br>
+              _ _ _  &nbsp;   _ _ _  &nbsp;   _ _ _ _ &nbsp;  _ _ _ &nbsp; _ _ _ _ </h4> 
+              <br>
+    
+              <div id="divUnos">
+                <input type="text" id="unos" class="round-input"><br>
+            </div>
+              
+          </div>
+          <button onclick="proveri()">Proveri</button>
+
+          <div align="center">
+            <button onclick="dalje()">Dalje</button>
+          </div>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+  function proveri() {
+    var unos = document.getElementById('unos').value;
+    if (unos == "And you love the game") {
+      alert("Tačan odgovor!");
+      window.location.href = "cekanje_rezultata.html";
+    }
+    else {
+        alert('Pogrešan odgovor!');
+    }
+  }
+
+  function pusti() {
+    var audioPlayer = document.getElementById('audioPlayer');
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+    } else {
+      audioPlayer.pause();
+    }
+  }
+
+  function dalje() {
+    window.location.href = "cekanje_rezultata.html";
+  }
+
+  function istekloVreme() {
+            setTimeout(function() {
+                alert("Isteklo vreme!");
+                window.location.href = "cekanje_rezultata.html";
+            }, 20000);
+        }
+
+        window.onload = istekloVreme;
+</script>
+
+    </body>
+</html>

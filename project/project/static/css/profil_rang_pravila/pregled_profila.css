@@ -1,0 +1,128 @@
+body{
+    align-items: center;
+    background-color: rgb(240, 218, 231);
+}
+
+#n{
+    display: flex;
+    justify-content: center;
+}
+
+#n ul li{
+    float: left;
+}
+
+#n ul li a{
+    display:block;
+    text-align: center;
+}
+
+.navbar{
+    align-items: center;
+}
+
+table {
+    background-color: #ccc;
+    border-collapse: collapse;
+    border:1px solid black;
+}
+
+td {
+    padding: 20px;
+    width: 30px;
+    height: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+input {
+    width: calc(100% - 170px);
+}
+
+.f{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0%;
+}
+
+tr:nth-child(even) {
+    background-color: #e3f1fc;
+}
+
+tr:nth-child(odd) {
+    background-color:  #fce3fa;
+}
+
+.header{
+    background-color: lightblue;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.header a {
+    float: left;
+    color: rgb(73, 0, 107);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.header a:hover {
+    background-color: rgb(216, 245, 255);
+    color: rgb(73, 0, 107);
+}
+.header a:active {
+    background-color: #9d08b1b4;
+    color: white;
+}
+
+.menu{
+    margin-top: 50px;
+    height: 700px;
+    width: 700px;
+    background-color: white;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    font-size: 20px;
+    color: rgb(73, 0, 107);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+table{
+    border-radius:10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 3px solid purple;
+}
+
+.header-right {
+    margin-left: auto;
+}
+
+.header-left {
+    margin-right: auto;
+}

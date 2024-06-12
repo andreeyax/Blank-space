@@ -1,0 +1,79 @@
+<!-- Autor: Jana Stanisavljević 0381/2021, Maša Nikolić 0439/2021 -->
+
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<title>Unos sifre</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/duel/sifra_sobe.css' %}">
+{% endblock %}
+
+{% block photo%}
+<img class="rot" src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+    <div class="menu">
+      <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+      Igra je završena, rezultat se obrađuje...
+      </div>
+      <br>
+      <div style="text-align: center;font-size: 30px;padding-bottom: 5
+      0px;font-weight: bold;padding-top: 20px;" id="drugi"></div>
+      Čeka se da drugi igrač završi igru...
+      </div>
+    
+</div>
+</div>
+
+</body>
+<script>
+var startTime = Date.now();
+function proveri_zavrsio_igrac() {
+    /*
+    svake sekunde proverava da li je drugi igrac zavrsio poslednju rundu i prelazi na odgovarajucu stranicu;
+    nakon 7 min i 10 s se izlazi jer to znaci da je drugi igrac odustao;
+    */
+    var currentTime = Date.now();
+    var elapsedTime = currentTime - startTime;
+    if (elapsedTime >= 430000) {
+        let ispis = document.getElementById('drugi');
+        ispis.textContent = "Drugi igrač je odustao!";
+        ispis.style.color = "#e63da5c9";
+
+        setTimeout(function() {
+            window.location.href = '{% url "pocetna" %}'; // treba za odgovarajuceg korisnika
+        }, 2000);
+    } else {
+        $.ajax({
+            url: '{% url "zavrsio_igrac" %}',
+            type: 'GET',
+            success: function(data) {
+                if (data.dosao) {
+                    window.location.href = '{% url "kraj_duela" %}';
+                } else {
+                    setTimeout(proveri_zavrsio_igrac, 1000);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error checking room code:', error);
+            }
+        });
+    }
+}
+
+$(document).ready(function() {
+    proveri_zavrsio_igrac();
+});
+</script>
+{% endblock %}

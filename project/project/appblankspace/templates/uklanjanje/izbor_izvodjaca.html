@@ -1,0 +1,38 @@
+<!-- Autor: Andrija Tomić 0489/2021, Maša Nikolić 0439/2021 -->
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dodavanje/stilovi.css' %}">
+<script src="{% static 'js/uklanjanje/izbor_izvodjaca_pesma_brisanje.js' %}"></script>
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna_administrator'%}">Početna</a>
+<a href="{% url 'pravila_igre' %}">Pravila igre</a>
+<a href="{% url 'pocetna'%}">Izloguj se</a>
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+  <div class="menu">
+    <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+      Kojem izvođaču pripadaju pesme koje uklanjate?
+    </div>
+    <form id="forma">
+      {% for izvodjac in izvodjaci %}
+        <label for="{{izvodjac.ime}}">{{izvodjac.ime}}</label>
+        <input type="radio" name="zanr" id="{{izvodjac.ime}}" value="{{izvodjac.id}}">
+      {% endfor %}
+      <button type="button" id="dalje" onclick="odabir_izvodjaca()">Dalje</button>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}

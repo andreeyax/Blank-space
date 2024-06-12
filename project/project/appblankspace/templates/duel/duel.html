@@ -1,0 +1,92 @@
+<!-- Autori: Maša Nikolić 0439/2021, Jana Stanisavljević 0381/2021 -->
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<title>duel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block styles %}
+<script src="{% static 'js/duel/duel.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/duel/duel.css' %}">
+{% endblock %}
+
+{% block audio %}
+<audio id="audioPlayer" preload="auto">
+  <source src="{{zvuk}}" type="audio/mpeg">
+</audio>
+{% endblock %}
+
+{% block photo%}
+<img class="rot" src="{% static 'photos/logofinal.jpg' %}" height="60" width="60">
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block menu %}
+<div class="main">
+  <div class="menu">
+
+    <div id="divRundaVreme"> 
+      <div id="rundaVreme">Runda:{{runda}}&ensp;&ensp;Vreme:<span id="timer">0</span></div>
+    </div>
+
+    <div class="menu-top">
+      <div class="menu-left" style="white-space: nowrap;">
+          <button onclick="pusti()" style="margin-left: 20px; font-size: 20px;">Pusti&ensp;&#119070;</button>
+      </div>
+
+      <div id="alert" class="alert">
+        <span class="closebtn" onclick="closeAlert()">&times;</span>
+        {{poruka}}
+    </div>
+
+      <div class="menu-right">
+          <div style="justify-content: right; padding-right: 25px; font-size: 35px;">{{poeni}}&ensp;&#119070;</div>
+      </div>
+  </div>
+
+    <div class="container mt-5 text-center">
+      <br>
+      <h4>
+        {{stihovi.poznat_tekst|safe}}
+        <br>
+        {{crtice|safe}}
+      </h4> 
+        <br>
+
+        <div id="divUnos">
+          <input type="text" id="unos" class="round-input" autocomplete="off"><br>
+      </div>
+        
+    </div>
+    <button onclick="proveri()">Proveri</button>
+
+    <div align="center">
+      <button onclick="sledeca_runda(true)">Dalje</button>
+    </div>
+      
+  </div>
+</div>
+</div>
+
+</body>
+</html>
+
+<script>
+function sledeca_runda(postaviti_rezultat) {
+  if(postaviti_rezultat == true) postaviRezultatRunde(0);
+  let runda = parseInt(uzmiCookie('runda'));
+  if(runda == 7) window.location.href = '{% url "cekanje_rezultata"%}';
+  else window.location.href = '{% url "duel" %}'; // mora da bude u template
+}
+
+function dohvatiTacneStihove() {
+  return "{{ stihovi.nepoznat_tekst|escapejs }}";
+}
+</script>
+{% endblock %}

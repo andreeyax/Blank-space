@@ -1,0 +1,61 @@
+<!-- Autor: Maša Nikolić 0439/2021 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unos sifre</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="sifra_sobe.css">
+</head>
+
+<body>
+  <div class="bodydiv">
+    <div class="header">
+        <img class="rot" src="../photos/logofinal.jpg" height="60" width="60">
+        <div class="header-right">
+            <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+        </div>
+    </div>
+    
+    <div class="main">
+      <div class="menu">
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+        Generiši novu šifru sobe
+          <button type="submit" onclick="generisi()">Generiši</button>
+        </div>
+        
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 50px;">
+          ILI
+        </div>
+        <div style="text-align: center;font-size: 30px;padding-bottom: 20px;font-weight: bold;padding-top: 40px;">
+          Unesi postojeću šifru sobe
+          </div>
+            <input type="password" name="sifra" id="sifra" autocomplete="off"><br>
+            <button type="submit" onclick="redirectToDuel()">Unesi</button>
+        <div style="text-align: center;font-size: 20px;padding-bottom: 50px;padding-top: 40px;color:#e63da5c9">
+        </div>
+    
+      </div>
+    </div>
+  </div>
+<script>
+  function redirectToDuel() {
+    var enteredPassword = document.getElementById('sifra').value;
+    if (enteredPassword === "13") {
+      window.location.href = "duel.html";
+    } else {
+      alert('Uneta šifra ne postoji!');
+    }
+  }
+
+  function generisi() {
+    window.location.href = "generisana_sifra.html"
+  }
+
+</script>
+    
+</body>
+</html>
+    

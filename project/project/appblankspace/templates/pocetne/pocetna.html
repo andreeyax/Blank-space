@@ -1,0 +1,38 @@
+<!-- Autor: Tamara Radojčić 0214/2021, Maša Nikolić 0439/2021- -->
+{% extends 'header/base.html' %}
+
+{% block title %}
+pocetna.html
+{% endblock %}
+
+{% block header %}
+{{ block.super }}
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna' %}">Početna</a>
+<a href="{% url 'pravila_igre' %}">Pravila igre</a>
+<a href="{% url 'login' %}">Uloguj se</a>
+{% endblock %}
+
+{% block left %}
+<div class="left">
+    <p>Cause <br> I've <br> got <br> a</p>
+</div>
+{% endblock %}
+
+{% block menu %}
+<div class="menu">
+    <h2>Igra dopunjavanja tekstova pesama</h2>
+    <div class="play">
+        <button onclick="window.location.href='{% url 'nivo' %}'">Igraj sam</button>
+        <button onclick="window.location.href='{% url 'sifra_sobe'%}'">Igraj u duelu</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block right %}
+<div class="right">
+    <p>baby <br> and <br> I'll <br> write <br> your <br> name</p>
+</div>
+{% endblock %}

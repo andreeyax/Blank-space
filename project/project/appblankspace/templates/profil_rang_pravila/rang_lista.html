@@ -1,0 +1,61 @@
+<!-- Autor: Maša Nikolić 0439/2021 -->
+
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block title %}
+rang_lista.html
+{% endblock %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/profil_rang_pravila/rang_lista.css' %}">
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/profil_rang_pravila/rang_lista.css' %}">
+{% endblock %}
+
+{% block body %}
+<body style="background-color: rgb(240, 218, 231);">
+    <div class="bodydiv">
+        {% block header %}
+        {{ block.super }}
+        {% endblock %}
+
+        {% block navigation %}
+        <a href="{% url 'vrati_na_pocetnu' %}">Početna</a>
+        <a href="{% url 'pravila_igre' %}">Pravila igre</a>
+        <a href="{% url 'logout' %}">Izloguj se</a>
+        {% endblock %}
+
+{% block menu %}
+<div class="main">
+    <div class="menu">
+      <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+          Rang Lista
+      </div>
+      <div style="display: flex;justify-content: center;">
+          <table>
+              <tr>
+                  <td>Redni broj</td>
+                  <td>Igrac</td>
+                  <td>Poeni</td>
+              </tr>
+              {% for num, name, points in ranks %}
+              <tr>
+                  <td>{{ num }}</td>
+                  <td>{{ name }}</td>
+                  <td>{{ points }}</td>
+              </tr>
+              {% endfor %}
+          </table>
+      </div>
+  </div> 
+</div>
+{% endblock %}
+    </div>
+</body>
+{% endblock %}

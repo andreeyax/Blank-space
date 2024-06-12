@@ -1,0 +1,62 @@
+<!-- Autor: Jana Stanisavljević 0381/2021, Maša Nikolić 0439/2021 -->
+
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{% static 'js/predlaganje/predlaganje.js' %}"></script>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/predlaganje/stilovi.css' %}">
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna_master'%}">Početna</a>
+<a href="{% url 'pravila_igre'%}">Pravila igre</a>
+<a href="{% url 'logout'%}">Izloguj se</a>
+{% endblock %}
+
+{% block menu %}
+<div class="main" >
+    <div class="menu">
+      <form id="forma">
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+            Naziv pesme
+        </div>
+        <input type="text" name="pesma" id="pesma" class="round-input"><br>
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+            Ime izvođača
+        </div>
+        <!--
+        {% for izvodjac in izvodjaci %}
+        <label for="{{ izvodjac.id }}">{{ izvodjac.ime }}</label>
+        <input type="radio" name="izvodjac" id="{{ izvodjac.id }}" value="{{ izvodjac.id }}" {% if izvodjac.default %} checked {% endif %}>
+        {% endfor %}-->
+
+        <select name="izvodjac" id="izvodjac">
+          {% for izvodjac in izvodjaci %}
+              <option value="{{ izvodjac.id }}" {% if izvodjac.default %} selected {% endif %}>
+                  {{ izvodjac.ime }}
+              </option>
+          {% endfor %}
+      </select>
+        
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+            Naziv žanra
+        </div>
+        {% for zanr in zanrovi %}
+        <label for="{{ zanr.id }}">{{ zanr.naziv }}</label>
+        <input type="radio" name="zanr" id="{{ zanr.id }}" value="{{ zanr.id }}" {% if zanr.default %} checked {% endif %}>
+        {% endfor %}
+        <button type="button" id="dodaj" onclick="predlog_pesme()">Predloži</button>
+      </form>
+      {% if messageBroj %}
+      <label style="color: red;">{{messageBroj}}</label>
+      {% endif %}
+    </div>
+</div>
+{% endblock %}

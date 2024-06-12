@@ -1,0 +1,74 @@
+<!-- Autor: Jana Stanisavljević 0381/2021, Maša Nikolić 0439/2021 -->
+{% extends 'header/base_2.html' %}
+{% load static %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="{% static 'potrebni fajlovi/jquery-3.7.0.min.js' %}"></script>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/predlozi/stilovi.css' %}">
+<style>
+    body{ background-color: rgb(240, 218, 231); ;}
+</style>
+{% endblock %}
+
+{% block navigation %}
+<a href="{% url 'pocetna_administrator'%}">Početna</a>
+<a href="{% url 'pravila_igre'%}">Pravila igre</a>
+<a href="{% url 'logout'%}">Izloguj se</a>
+{% endblock %}
+
+{% block menu %}
+    <div class="menu1" >
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;" id="db">
+            Predlozi izvođača
+        </div>
+        <div style="display: flex;justify-content: center;">
+            <table id="tb">
+                <tr style="border-bottom: 1px solid;border-color: black;">
+                    <th><label>Izvođač</label></th>
+                    <th><label>Žanr</label></th>
+                    <th><label>Korisnik</label></th>
+                    <th>Prihvati?</th>
+                    <th>Odbij?</th>
+                </tr>
+                {% for izvodjac in izvodjaci %}
+                <tr>
+                    <td><label>{{ izvodjac.ime_izvodjaca}}</label></td>
+                    <td><label>{{ izvodjac.zan.naziv }}</label></td>
+                    <td>{{ izvodjac.kor.korisnicko_ime }}</td>
+
+                    <form action="{% url 'prihvati_predlog' izvodjac.id izvodjac.zan.id izvodjac.kor.id %}" method="POST">
+                        {% csrf_token %}
+                        <td><button type="submit" id="{{izvodjac.ime_izvodjaca}}">Prihvati</button></td>
+                    </form>
+                    
+                    <form onsubmit="return confirm('Da li ste sigurni da želite da odbijete predlog?');" action="{% url 'obrisi_podatak' izvodjac.id %}" method="POST">
+                        {% csrf_token %}
+                        <td><button type="submit" name="{{izvodjac.ime_izvodjaca}}">Odbij</button></td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% if message2 %}
+        <script>
+        $(document).ready(function(){alert("Nema vise")});
+        </script>
+        {% endif %}
+
+        {% if message %}
+        <br><h4 style="color: red;" class="text-center">{{message}}</h4>
+        {% endif %}
+    </div>
+    <script type="text/javascript">
+       $(document).ready(function(){
+         $('.menu1').css('min-height', $(tb).height()+$(db).height()+110);
+        });
+    </script>
+</body>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!-- Autor: Tamara Radojčić 0214/2021 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="forgotpasscss.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="header">
+            <img src="../photos/logofinal.jpg" height="60" width="60">
+            <div class="header-right">
+                <a href="../pocetne/pocetna.html">Početna</a>
+                <a href="../profil_rang_pravila/pravila_igre.html">Pravila igre</a>
+                <a href="../autorizacija/login.html">Uloguj se</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <p class="sign">Zaboravljena lozinka</p>
+                <form class="form1">
+                    <span class="details">Koje je ime mog prvog kućnog ljubimca?</span>
+                    <div class="input-box">
+                        <input class="box" type="text"  placeholder="Odgovor" id="ime">
+                    </div>
+                    <button class="submit" onclick=" return proveri()">Odgovori na pitanje</button>
+            </div>
+        </div>
+        <script>
+            function proveri() {
+                var ime = document.getElementById('ime').value;
+                if(ime == "Mimi") {
+                    window.location.href = "newpass.html";
+                    return false;
+                }
+                alert("Pogrešan odgovor!")
+            }
+          </script>
+    </body>
+</html>
