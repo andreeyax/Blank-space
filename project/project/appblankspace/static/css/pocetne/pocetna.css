@@ -154,6 +154,11 @@ button:active{
     animation: wiggle 3.5s linear;
   }
 
+  .textPocetna{
+    font-size: 5.2vw;
+  }
+
+
   @keyframes wiggle {
     0% {color: rgb(240, 218, 231);}
     5% { transform: rotate(0deg); }
@@ -164,6 +169,7 @@ button:active{
    60% { transform: rotate(-5deg); }
    90% { transform: rotate(0deg); color: rgb(73, 0, 107);}
 }
+
 
 
   @keyframes rotation {

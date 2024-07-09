@@ -22,7 +22,7 @@
 {% block menu %}
 <div class="main">
   <div class="menu">
-    <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+    <div id="tekst">
       Kojem izvođaču pripadaju pesme koje uklanjate?
     </div>
     <form id="forma">
@@ -35,4 +35,36 @@
   </div>
 </div>
 </div>
+<style>
+  #tekst{
+    text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;
+  }
+  /* Dodati stilove za mobilne uređaje */
+  @media screen and (max-width: 767px) {
+    #tekst{
+      text-align: center;font-size: 22px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;
+    }
+
+    .main{
+      padding-left: 15px;
+      max-width: 90%;
+      margin-bottom: 15px;
+      height: 100%;
+    }
+    .bodydiv{
+      background-color: rgb(240, 218, 231);
+      height: 100%;
+    }
+    .header a{
+      font-size: 16px;
+    }
+    .menu{
+      background-color: white;
+      margin-bottom: 22px;
+      height: 500px;
+      width: 700px;
+    }
+    
+  }
+</style>
 {% endblock %}

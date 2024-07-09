@@ -48,6 +48,13 @@
       font-weight: 700;
       font-size: 17px;
       letter-spacing: 1px;
+
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      max-height: 100%;
+
     }
 
     .header-right {
@@ -75,9 +82,9 @@
 
     .menu{
       margin-top: 50px;
-      min-height: 1700px;
+      min-height: 100%;
       max-width: 1100px;
-      width: 100%;
+      width: 90%;
       background-color: white;
       margin: 7em auto;
       border-radius: 1.5em;
@@ -93,12 +100,14 @@
         margin:0;
         top:70px;
         left:0;
-        height: 2000px;
+        min-height: 100%;
         width: 100%;
         background-color: rgb(240, 218, 231);
         display: flex;
         justify-content: center;
     }
+
+
   
     p{
         padding-left: 10px;

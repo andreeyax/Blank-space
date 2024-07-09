@@ -22,22 +22,63 @@
 {% block menu %}
 <div class="main">
     <div class="menu">
-      <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+      <div id="tekst">
       Generisana šifra sobe:
       </div>
       <div style="text-align: center;font-size: 30px;padding-bottom: 20px;font-weight: bold;padding-top: 40px;color:#e63da5c9">
         {{sifra}}
     </div>
       <br>
-      <div style="text-align: center;font-size: 30px;padding-bottom: 5
-      0px;font-weight: bold;padding-top: 20px;"></div>
+      <div id="tekst4"></div>
       Kada drugi igrač unese šifru, počeće igra...
       <button onclick="window.location.href = '{% url 'sifra_sobe' %}'">Odustani</button>
       </div>
     
 </div>
 </div>
+<style>
+    /* Dodati stilove za mobilne uređaje */
+    @media screen and (max-width: 767px) {
+      #tekst{
+        text-align: center;
+        font-size: 22px;
+        padding-bottom: 30px;
+        font-weight: bold;
+        padding-top: 40px;
+      }
+      #tekst2{
+        text-align: center;font-size: 22px;padding-bottom: 50px;font-weight: bold;padding-top: 30px;
+      }
+      #tekst3{
+        text-align: center;font-size: 22px;padding-bottom: 20px;font-weight: bold;padding-top: 20px;
+      }
 
+      #tekst4{
+      text-align: center;font-size: 11px;padding-bottom: 50px;font-weight: bold;padding-top: 20px;
+    }
+  
+      .main{
+        padding-left: 15px;
+        max-width: 90%;
+        margin-bottom: 15px;
+        height: 100%;
+      }
+      .bodydiv{
+        background-color: rgb(240, 218, 231);
+        height: 100%;
+      }
+      .header a{
+        font-size: 16px;
+      }
+      .menu{
+        background-color: white;
+        margin-bottom: 22px;
+        height: 500px;
+        width: 700px;
+      }
+      
+    }
+  </style>
 </body>
 <script>
 function proveri_stigao_igrac() {

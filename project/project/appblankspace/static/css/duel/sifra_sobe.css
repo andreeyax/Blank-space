@@ -138,4 +138,20 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
-  
+    #tekst{
+      text-align: center;
+      font-size: 30px;
+      padding-bottom: 50px;
+      font-weight: bold;
+      padding-top: 40px;
+    }
+    #tekst2{
+      text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 50px;
+    }
+    #tekst3{
+      text-align: center;font-size: 30px;padding-bottom: 20px;font-weight: bold;padding-top: 40px;
+    }
+
+    #tekst4{
+      text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 20px;
+    }

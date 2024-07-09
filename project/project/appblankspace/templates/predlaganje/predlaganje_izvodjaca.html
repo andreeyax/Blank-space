@@ -23,25 +23,56 @@
 <div class="main">
     <div class="menu">
       <form id="forma">
-        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;" >
             Ime izvođača
         </div>
         <input type="text" name="ime" id="ime" class="round-input"><br>
         {% if message %}
         <label style="color: red;">{{message}}</label>
         {% endif %}
-        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;">
+        <div style="text-align: center;font-size: 30px;padding-bottom: 50px;font-weight: bold;padding-top: 40px;" >
             Naziv žanra
         </div>
           {% for zanr in zanrovi %}
           <label for="{{ zanr.id }}">{{ zanr.naziv }}</label>
           <input type="radio" name="zanr" id="{{ zanr.id }}" value="{{ zanr.id }}" {% if zanr.default %} checked {% endif %}>
           {% endfor %}
-          <button type="button" id="dodaj" onclick="predlozi()">Predloži</button>
+          <button type="button" id="dodaj" onclick="predlozi()" >Predloži</button>
         </form>
         {% if messageBroj %}
         <label style="color: red;">{{messageBroj}}</label>
         {% endif %}
     </div>
 </div>
+<style>
+  /* Dodati stilove za mobilne uređaje */
+  @media screen and (max-width: 767px) {
+    
+    .main{
+      padding-left: 15px;
+      max-width: 90%;
+      margin-bottom: 15px;
+      
+    }
+    .bodydiv{
+      background-color: rgb(240, 218, 231);
+    }
+    .header-right a{
+      font-size: 16px;
+    }
+    .menu{
+      background-color: white;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+      
+    }
+    form{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+  }
+</style>
 {% endblock %}
