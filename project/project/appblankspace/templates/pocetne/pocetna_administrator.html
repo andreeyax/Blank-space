@@ -7,6 +7,13 @@
 pocetna_brucos.html
 {% endblock %}
 
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{% static 'potrebni fajlovi/jquery-3.7.0.min.js' %}"></script>
+{% endblock %}
+
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/pocetne/pocetna_ulogovan.css' %}">
 {% endblock %}
@@ -43,4 +50,34 @@ pocetna_brucos.html
         <button onclick="window.location.href='{% url 'predlozi_pesama'%}'">Predlozi pesama</button>
     </div>
 </div>
+
+<style>
+    /* Dodati stilove za mobilne uređaje */
+    @media screen and (max-width: 767px) {
+      h2{
+        font-size: 24px;
+      }
+      button{
+        font-size: 16px;
+        margin-left: 3px;
+        margin-right: 1px;
+        padding-left: 3px;
+        padding-right: 3px;
+      }
+
+      .menu{
+        max-width: 95%;
+        margin-bottom: 15px;
+        min-height: 400px;
+      }
+  
+      .bodydiv{
+        background-color: rgb(240, 218, 231);
+  
+      }
+      .header a{
+        font-size: 16px;
+      }
+    }
+  </style>
 {% endblock %}

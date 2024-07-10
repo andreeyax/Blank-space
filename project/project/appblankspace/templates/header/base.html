@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Title{% endblock %}</title>
+    {% block link.src %}
+    {% endblock %}
     {% block styles %}
     <link rel="stylesheet" href="{% static 'css/pocetne/pocetna.css' %}">
     {% endblock %}

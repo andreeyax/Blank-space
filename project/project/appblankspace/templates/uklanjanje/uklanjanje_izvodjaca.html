@@ -44,6 +44,27 @@
         </table>
     </div>
 </div>
+
+<style>
+    /* Dodati stilove za mobilne uređaje */
+    @media screen and (max-width: 767px) {
+     
+      .menu{
+        max-width: 95%;
+        margin-bottom: 15px;
+        min-height: 400px;
+      }
+  
+      .bodydiv{
+        background-color: rgb(240, 218, 231);
+  
+      }
+      .header a{
+        font-size: 16px;
+      }
+    }
+  </style>
+
 <script type="text/javascript">
     $(document).ready(function(){
         $('.menu').css('min-height', $(tb).height()+$(db).height()+110);

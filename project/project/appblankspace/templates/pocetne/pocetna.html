@@ -1,8 +1,16 @@
 <!-- Autor: Tamara Radojčić 0214/2021, Maša Nikolić 0439/2021- -->
 {% extends 'header/base.html' %}
 
+{% load static %}
 {% block title %}
 pocetna.html
+{% endblock %}
+
+{% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{% static 'potrebni fajlovi/jquery-3.7.0.min.js' %}"></script>
 {% endblock %}
 
 {% block header %}
@@ -16,7 +24,7 @@ pocetna.html
 {% endblock %}
 
 {% block left %}
-<div class="left">
+<div class="left" id="left">
     <p>Cause <br> I've <br> got <br> a</p>
 </div>
 {% endblock %}
@@ -32,7 +40,46 @@ pocetna.html
 {% endblock %}
 
 {% block right %}
-<div class="right">
+<div class="right" id="rig">
     <p>baby <br> and <br> I'll <br> write <br> your <br> name</p>
 </div>
 {% endblock %}
+
+<style>
+
+    .right { 
+        display: inline-block; 
+    }
+    /* Dodati stilove za mobilne uređaje */
+    @media screen and (max-width: 767px) {
+      h2{
+        font-size: 24px;
+      }
+      button{
+        font-size: 20px;
+      }
+      .menu{
+        max-width: 95%;
+        margin-bottom: 15px;
+        min-height: 400px;
+      }
+  
+      .bodydiv{
+        background-color: rgb(240, 218, 231);
+  
+      }
+      .header a{
+        font-size: 16px;
+      }
+
+      .right {
+        display: none !important;
+        animation: none;
+      }
+    
+      .left{
+        display: none;
+        animation: none;
+      }
+    }
+  </style>

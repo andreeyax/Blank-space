@@ -4,6 +4,7 @@
 
 {% block link.src %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="{% static 'potrebni fajlovi/jquery-3.7.0.min.js' %}"></script>
 {% endblock %}
 
 {% block styles %}
@@ -20,7 +21,7 @@
 <div class="main">
   <div>
           <div class="container">
-            <div class="title">Podaci o pesmi</div>
+            <div class="title" id="title">Podaci o pesmi</div>
             <div class="content">
               <form id="forma" method="POST" action="/pesma_podaci/dodavanje/" onsubmit="return validacijaForme()" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -58,6 +59,39 @@
   </div>
 </div>
 </div>
+
+<style>
+  /* Dodati stilove za mobilne uređaje */
+  @media screen and (max-width: 767px) {
+   
+    .container{
+      max-width: 75%;
+      margin-bottom: 15px;
+      min-height: 400px;
+    }
+
+    .bodydiv{
+      background-color: rgb(240, 218, 231);
+
+    }
+    .header a{
+      font-size: 16px;
+    }
+
+    .details{
+      font-size: 18px;
+    }
+    #title{
+      font-size: 25px;
+      padding-bottom: 3px;
+    }
+
+    .box{
+      font-size: 7px;
+    }
+  }
+</style>
+
 <script>
   function validacijaForme(){
     let naziv=document.getElementById("naziv").value;

@@ -4,6 +4,10 @@
 {% load static %}
 
 {% block link.src %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{% static 'potrebni fajlovi/jquery-3.7.0.min.js' %}"></script>
 {% endblock %}
 
 {% block styles %}
@@ -35,6 +39,62 @@
         </form>
     </div>
 </div>
+
+
+
+<style>
+    /* Dodati stilove za mobilne uređaje */
+    @media screen and (max-width: 767px) {
+        .sign{
+            color: #8C55AA;
+            font-weight: bold;
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .sign{
+            padding-bottom: 5px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+        .sumbit{
+            margin-bottom: 5px;
+            padding-top: 5px;
+        }
+        .alert-mess{
+            padding-bottom: 1px;
+            margin-bottom: 1px;
+            margin-top: 1px;
+            padding-top: 1px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .main-bottom{
+            margin-top: 2px;
+        }
+
+        .form1{
+            margin-bottom: 5px;
+        }
+
+      .main{
+        padding-left: 15px;
+        max-width: 90%;
+        margin-bottom: 15px;
+        min-height: 400px;
+      }
+      .bodydiv{
+        background-color: rgb(240, 218, 231);
+
+      }
+      .header a{
+        font-size: 16px;
+      }
+      
+    }
+  </style>
+
+
 <script type="text/javascript">
 $(document).ready(function(){
     $('.menu').css('min-height', $(tb).height()+$(db).height()+110);

@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{% static 'potrebni fajlovi/jquery-3.7.0.min.js' %}"></script>
 {% endblock %}
 
 {% block styles %}
@@ -35,4 +36,24 @@
     </form>
   </div>
 </div>
+
+<style>
+  /* Dodati stilove za mobilne uređaje */
+  @media screen and (max-width: 767px) {
+   
+    .menu{
+      max-width: 95%;
+      margin-bottom: 15px;
+      min-height: 400px;
+    }
+
+    .bodydiv{
+      background-color: rgb(240, 218, 231);
+
+    }
+    .header a{
+      font-size: 16px;
+    }
+  }
+</style>
 {% endblock %}
