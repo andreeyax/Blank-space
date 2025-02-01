@@ -22,7 +22,7 @@ def duel_runda(request, stihovi_niz=None):
         stihovi_niz = json.loads(request.COOKIES['stihovi'])
     else:
         stihovi_niz = json.loads(stihovi_niz)
-
+    print(stihovi_niz)
     
     stihovi_id = stihovi_niz[runda - 1]
     stihovi = Stihovi.objects.get(pk=stihovi_id)

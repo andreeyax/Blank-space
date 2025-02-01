@@ -1,6 +1,7 @@
 from django.urls import include, path
 from . import views
 from django.contrib import admin
+from .viewsM import *
 
 urlpatterns = [
 
@@ -77,4 +78,46 @@ urlpatterns = [
     path('predlaganje_izvodjaca/dodaj_predlog_izvodjaca/<str:ime>/<int:zanr>',views.dodaj_predlog_izvodjaca,name='dodaj_predlog_izvodjaca'),
     path('predlaganje_pesama/dodaj_predlog_pesme/<str:pesma>/<str:ime>/<str:zanr>',views.dodaj_predlog_pesme,name='dodaj_predlog_pesme'),
     path('pocetnaUlogovanTip/',views.pocetnaUlogovanTip,name="pocetnaUlogovanTip"),
+
+
+    
+    # android
+    path('zanrovi/', ZanrList.as_view(), name='zanr-list'),
+    path('igra_sam_android/', IgraSamAPIView.as_view(), name='igra_sam_android'),
+    path('kraj_igre_adndroid/', KrajIgre.as_view(), name="kraj_igre_adndroid"),
+    path('rang_lista_andoid/', RangLista.as_view(), name='rang_lista_andoid'),
+    path('pregled_profila_andoid/', MojProfil.as_view(), name='pregled_profila_andoid'),
+    path('izvodjaci_andoid/', IzvodjaciList.as_view(), name='izvodjaci_andoid'),
+    path('get_audio/',SongsApi.as_view(),name='get_audio'),
+    path('login_android/',LoginApi.as_view(),name='login_android'),
+    path('predlaganje_izvodjaca_android/',PredlaganjeIzvodjacaApi.as_view(),name='predlaganje_izvodjaca_android'),
+    path('predlaganje_pesme_android/',PredlaganjePesmeApi.as_view(),name='predlaganje_pesme_android'),
+    path('izvodjaci_zanra_andoid/', UklanjanjeZanrIzvodjaca.as_view(), name="izvodjaci_zanra_andoid"),
+    path('izvodjaci_pesme_andoid/', UklanjanjePesmeIzvodjaca.as_view(), name="izvodjaci_pesme_andoid"),  
+    path('uklanjanje_korisnika_android/', UklanjanjeKorisnika.as_view(), name="uklanjanje_korisnika_android"),
+    path('registracija_android/', Registracija.as_view(), name="registracija_android"),
+    path('zaboravljena_lozinka_android/', ZaboravljenaLozinka.as_view(), name="zaboravljena_lozinka_android"),
+    path('zaboravljena_lozinka_pitanje_android/', ZaboravljenaLozinkaPitanje.as_view(), name="zaboravljena_lozinka_pitanje_android"),
+    path('nova_lozinka_android/', NovaLozinka.as_view(), name="nova_lozinka_android"),
+    path('predlozi_izvodjaca_android/', PredloziIzvodjaca.as_view(), name="predlozi_izvodjaca_android"),
+    path('predlozi_izvodjaca_odbij_android/', PredloziIzvodjacaOdbij.as_view(), name="predlozi_izvodjaca_odbij_android"),
+    path('predlozi_pesme_android/', PredloziPesme.as_view(), name="predlozi_pesme_android"),
+    path('predlozi_pesme_odbij_android/', PredloziPesmeOdbij.as_view(), name="predlozi_pesme_odbij_android"),
+    path('ukloni_korisnika_android/', UklanjanjeKorisnika.as_view(), name="ukloni_korisnika_android"),
+    path('ukloni_zanr_android/', UklanjanjeZanraAPI.as_view(), name="ukloni_zanr_android"),
+    path('ukloni_izvodjaca_android/', UklanjanjeIzvodjacaAPI.as_view(), name="ukloni_izvodjaca_android"),
+    path('ukloni_pesmu_android/', UklanjanjePesmeAPI.as_view(), name="ukloni_pesmu_android"),
+
+    path('provera_da_li_postoji/', ProveraPostojanja.as_view(), name="provera_da_li_postoji"),
+    path('dodaj_zanr_android/', DodajZanrAPI.as_view(), name="dodaj_zanr_android"),
+
+    # android duel
+    path('duel_android/',DuelAPI.as_view(),name='duel_android'), 
+    path('kraj_duela_android/', KrajDuelaAPI.as_view(),name='kraj_duela_android'),
+    path('cekanje_rezultata_android/',CekanjeRezultataAPI.as_view(),name='cekanje_rezultata_android'),
+    #path('sifra_sobe_android/',views.sifra_sobe,name='sifra_sobe_android'),
+    path('generisi_sifru_sobe_android/',GenerisiSifruAPI.as_view(),name='generisi_sifru_sobe_android'), 
+    path('proveri_sifru_sobe_android/',ProveriSifruAPI.as_view(),name='proveri_sifru_sobe_android'), 
+    path('stigao_igrac_android/',StigaoIgracAPI.as_view(),name='stigao_igrac_android'), 
+    path('zavrsio_igrac_android/',ZavrsioIgracAPI.as_view() ,name='zavrsio_igrac_android') 
 ]

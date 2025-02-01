@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#MOBILE_LINK="http://10.0.2.2:8000"
+MOBILE_LINK="http://192.168.143.178:8000"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-6sqtgpw13uxj&$ivy3o@ip!$kk6(i524z$f=_5o9)hw2md01+_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','192.168.0.21']
 
 
 # Application definition
@@ -39,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -50,12 +54,21 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 604800
 
 ROOT_URLCONF = 'project.urls'
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",  # Ako radite sa localhost aplikacijom
+    "http://10.0.2.2:8000",  # Ako koristite Android emulator
+   
+]
 
 TEMPLATES = [
     {
@@ -84,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blank_space',
         'USER': 'root',
-        'PASSWORD': '123',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
@@ -95,7 +108,7 @@ TEST_DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'test_blank_space',
         'USER': 'root',
-        'PASSWORD': '123',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

@@ -12,6 +12,8 @@ from .models import Predlaze_Izvodjaca,Predlaze_Pesmu,Zanr,Izvodjac,Pesma
 from .predlozi import *
 from .models import Predlaze_Izvodjaca,Predlaze_Pesmu,Zanr,Izvodjac,Korisnik
 
+from .viewsM import *
+
 
 # Autori: Svi članovi tima
 
@@ -132,6 +134,8 @@ def proveri_sifru(request):
     provera, stihovi = provera_sobe(request)
     if provera:
         ret = duel_runda(request, stihovi)
+        print("DUEL WEB")
+        print(ret['stihovi'])
         response = render(request,'./duel/duel.html',{'stihovi': ret['stihovi'], 
                     'zvuk': ret['zvuk'], 'crtice': ret['crtice'], 'runda': ret['runda'], 'poeni': ret['poeni']})
         response.set_cookie('runda', ret['runda'])
@@ -247,7 +251,9 @@ def igra_sam(request):
     novizanrovi= [element.strip().strip('"') for element in zanrovii]
     zanroviid=Zanr.objects.filter(naziv__in=novizanrovi)
     izvodjaci=Izvodjac.objects.filter(zan_id__in=zanroviid)
+    print(izvodjaci)
     pesme=Pesma.objects.filter(izv_id__in=izvodjaci)
+    print(pesme)
     stihovi=Stihovi.objects.filter(pes_id__in=pesme,nivo=tezina)
     stih=0
     
