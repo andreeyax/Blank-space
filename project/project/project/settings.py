@@ -16,7 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #MOBILE_LINK="http://10.0.2.2:8000"
-MOBILE_LINK="http://192.168.143.178:8000"
+MOBILE_LINK="http://10.132.56.178:8000"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-6sqtgpw13uxj&$ivy3o@ip!$kk6(i524z$f=_5o9)hw2md01+_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','192.168.0.21']
+ALLOWED_HOSTS = ['*','10.132.56.178']
 
 
 # Application definition

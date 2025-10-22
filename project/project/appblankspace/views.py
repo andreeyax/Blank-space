@@ -143,6 +143,17 @@ def proveri_sifru(request):
         response.set_cookie('soba', request.POST.get('sifra'))
         response.set_cookie('stihovi', stihovi)
         response.set_cookie('redni_broj', '2')
+
+        sifra_sobe = request.POST.get('sifra')
+        
+        try:
+            soba = Soba.objects.get(pk=sifra_sobe)
+
+            soba.poeni_2 = -1
+
+            soba.save()
+        except Soba.DoesNotExist:
+            pass
         return response
     else:
         return render(request,'./duel/sifra_sobe.html',{'poruka': "Uneta šifra ne postoji!"})

@@ -482,7 +482,119 @@ class ProveraPostojanja(APIView):
             
 class DodajZanrAPI(APIView):
     def post(self,request,*args,**kwargs):
-        return Response({"odgovor": "Uspeh"}, status=200)
+        
+        try:
+            # 1. Dohvatanje podataka iz zahteva
+            naziv_pesme = request.data.get('naziv_pesme')
+            ime_izvodjaca = request.data.get('izvodjac')
+            zanr_pesme = request.data.get('zanr')
+            poznati_stihovi = request.data.get('nepoznati_stihovi', '').replace(',', '<br>')
+            nepoznati_stihovi = request.data.get('poznati_stihovi')
+            nivo = request.data.get('nivo')
+
+            zvuk_file = request.FILES.get('audio')  # multipart/form-data ključ (isti kao u Retrofit-u)
+            
+            if not all([naziv_pesme, ime_izvodjaca, zanr_pesme, poznati_stihovi, nepoznati_stihovi, nivo, zvuk_file]):
+                return Response({"odgovor": "Nisu svi podaci prosleđeni."},status=200)
+
+            # 2. Upis u bazu
+
+            #provera da li postoji zanr
+        
+            podatakZanr =Zanr.objects.filter(naziv=zanr_pesme).first()
+            if podatakZanr ==None:
+                podatakZanr = Zanr(naziv=zanr_pesme)
+                podatakZanr.save()
+    
+            #podatakZanr = Zanr(naziv=zanr_pesme)
+            #podatakZanr.save()
+
+            id_z = Zanr.objects.get(naziv=zanr_pesme).id
+
+            #provera da li postoji izvodjac
+            podatakIzvodjac = Izvodjac.objects.filter(ime=ime_izvodjaca, zan_id=id_z).first()
+            if podatakIzvodjac is None:
+                podatakIzvodjac = Izvodjac(ime=ime_izvodjaca, zan_id=id_z)
+                podatakIzvodjac.save()
+
+            #podatakIzvodjac = Izvodjac(ime=ime_izvodjaca, zan_id=id_z)
+            #podatakIzvodjac.save()
+            id_i = Izvodjac.objects.get(ime=ime_izvodjaca).id
+
+            podatakPesma = Pesma(naziv=naziv_pesme, izv_id=id_i)
+            podatakPesma.save()
+            id_p = Pesma.objects.get(naziv=naziv_pesme).id
+            
+            n = DodajZanrAPI.odredi_nivo(nivo)
+            
+            stih = Stihovi(
+                nivo=n,
+                poznat_tekst=poznati_stihovi,
+                nepoznat_tekst=nepoznati_stihovi,
+                zvuk=zvuk_file.name,
+                pes_id=id_p
+            )
+            stih.save()
+            # 3. Snimi fajl na disk (kao u `sacuvaj_zvuk`)
+            DodajZanrAPI.sacuvaj_zvuk(zvuk_file)
+            print("Dodaj zanr uspesno dodato.")
+
+            return Response({"odgovor": "Pesma uspešno dodata."}, status=201)
+
+        except Exception as e:
+            return Response({"odgovor": str(e)}, status=500)
+    
+    def get_or_create_izv(ime, zanr):
+        """
+        Dohvata objekat iz tabele izvodjac na osnovu prosledjenog imena.
+        U suprotnom kreira izvodjaca sa zadatim imenom.
+        """
+        try:
+            izvodjac = Izvodjac.objects.get(ime=ime)
+        except Izvodjac.DoesNotExist:
+            izvodjac = Izvodjac(ime=ime, zan_id=zanr)
+            izvodjac.save()
+        return izvodjac
+    
+    def get_or_create_pesma(naziv, izvodjac):
+        """
+        Dodavanje pesme sa prosledjenim podacima u tabelu pesma.
+        """
+        try:
+            pesma = Pesma.objects.get(naziv=naziv)
+        except Pesma.DoesNotExist:
+            pesma = Pesma(naziv=naziv, izv_id=izvodjac.id)
+            pesma.save()
+        return pesma
+
+
+    def sacuvaj_zvuk(zvuk2):
+        static_dir = os.path.join(settings.SONG_UPLOAD_DIR, 'songs')
+        if not os.path.exists(static_dir):
+            os.makedirs(static_dir)
+        with open(os.path.join(static_dir, zvuk2.name), 'wb+') as destination:
+            for chunk in zvuk2.chunks():
+                destination.write(chunk)
+
+    def odredi_nivo(nivo):
+        """
+        Odredjivanje nivo-a na osnovu prosledjenog podatka iz forme.
+        """
+        if nivo == "easy" or nivo=="E":
+            return "E"
+        elif nivo == "normal" or nivo=="N":
+            return "N"
+        else:
+            return "H"
+
+class IzvodjaciZanr(APIView):
+    def post(self,request, *args, **kwargs):
+        zanr = request.data.get('zanr','')
+        z=Zanr.objects.get(naziv = zanr)
+        izvodjaci = Izvodjac.objects.filter(zan=z) 
+        serializer = IzvodjacSerializer(izvodjaci, many=True)
+        print(serializer.data)
+        return Response(serializer.data)
 
 class Registracija(APIView):
     def post(self,request, *args, **kwargs):

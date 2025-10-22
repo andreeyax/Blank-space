@@ -110,7 +110,8 @@ urlpatterns = [
 
     path('provera_da_li_postoji/', ProveraPostojanja.as_view(), name="provera_da_li_postoji"),
     path('dodaj_zanr_android/', DodajZanrAPI.as_view(), name="dodaj_zanr_android"),
-
+    path('dohvati_izvodjace_zanra_android/', IzvodjaciZanr.as_view(), name="dohvati_izvodjace_zanra_android"),
+    
     # android duel
     path('duel_android/',DuelAPI.as_view(),name='duel_android'), 
     path('kraj_duela_android/', KrajDuelaAPI.as_view(),name='kraj_duela_android'),
