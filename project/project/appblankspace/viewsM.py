@@ -26,6 +26,10 @@ from rest_framework.response import Response
 from rest_framework import status
 import random
 
+import requests
+from bs4 import BeautifulSoup
+from django.http import JsonResponse
+
 class ZanrList(APIView):
     """ANDROID: Odabir zanra kada igrac igra sa samim sobom."""
     def get(self, request):
@@ -1148,3 +1152,66 @@ class DuelAPI(APIView):
             'runda': runda+1,
             'poeni': poeni
         }
+    
+
+class WebScrapper(APIView):
+    def post(self, request):
+        print("web")
+        reci=request.data.get('reci','')
+
+        rezultati = WebScrapper.pretrazi_pesme(reci)
+        for pesma in rezultati:
+            print(f"{pesma['naslov']} - {pesma['izvodjac']}")
+            #print(pesma['tekst'])
+            #print("-" * 40)
+        return JsonResponse(rezultati, safe=False, json_dumps_params={'ensure_ascii': False})
+    
+    def pretrazi_pesme(kljucna_rec):
+        query = kljucna_rec.replace(" ", "+")
+        url = f"https://pesmarica.rs/pesme/pretraga?q={query}"
+
+        headers = {
+            "User-Agent": "Mozilla/5.0"
+        }
+
+        response = requests.get(url, headers=headers)
+        if response.status_code != 200:
+            return f"Greška: {response.status_code}"
+
+        soup = BeautifulSoup(response.text, "html.parser")
+        pesme = []
+        seen = set() 
+
+        def osisaj_tekst(tekst):
+            mapa = str.maketrans({
+                "š": "s", "č": "c", "ć": "c", "ž": "z", "đ": "dj",
+                "Š": "s", "Č": "c", "Ć": "c", "Ž": "z", "Đ": "dj"
+            })
+            return tekst.translate(mapa).lower().strip()
+
+        # Svaka pesma je u <div class="card-body">
+        kartice = soup.select("div.card-body")
+
+        for kartica in kartice:
+            naslov_tag = kartica.find("h5")
+            izvodjac_tag = kartica.find("h6")
+            tekst_tag = kartica.find("pre")
+
+            if naslov_tag and izvodjac_tag and tekst_tag:
+                naslov = naslov_tag.text.strip()
+                izvodjac = izvodjac_tag.text.strip()
+
+                # Proveri da li je kombinacija već viđena
+                key = (osisaj_tekst(naslov), osisaj_tekst(izvodjac))
+                if key in seen:
+                    continue
+                seen.add(key)
+
+                pesma = {
+                    "naslov": naslov,
+                    "izvodjac": izvodjac,
+                    "tekst": tekst_tag.text.strip()
+                }
+                pesme.append(pesma)
+        
+        return pesme
